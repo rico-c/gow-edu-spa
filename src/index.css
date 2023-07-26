@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +14,24 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.main-color {
+  color: #f05622;
+}
+.feedback-card-shadow {
+  box-shadow: 0px 8px 15px 1px rgba(13, 122, 152, 0.2);
+}
+.ant-table-thead .ant-table-cell {
+  background-color: #02B4D5 !important; 
+  color: #fff !important;
+}
+.dark-row {
+  background-color: #f5f5f5;
+}
+.info-graph p {
+  margin-bottom: 20px;
+}
+.slick-slide {
+  transition: opacity 1000ms ease 0s, visibility 1000ms ease 0s !important;
 }
