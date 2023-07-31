@@ -7,32 +7,6 @@ import { Link } from "react-router-dom";
 import {fetchSelectList, fetchRankingList} from "../../api/rank";
 import {useEffect, useState} from "react";
 
-const columns = [
-  {
-    title: "Times Rank",
-    dataIndex: "rank",
-    key: "rank",
-  },
-  {
-    title: "Institution",
-    dataIndex: "school_name",
-    key: "school_name",
-    render: (text, record, index) => {
-      return <div className="flex items-center gap-10"><span className="font-bold">{text}</span></div>
-    }
-  },
-  {
-    title: "State/Region",
-    dataIndex: "state_name",
-    key: "state_name",
-  },
-  {
-    title: "City",
-    dataIndex: "city_name",
-    key: "city_name",
-  },
-];
-
 const University = () => {
   const {t} = useTranslation("university");
 
@@ -44,6 +18,37 @@ const University = () => {
 
   const [data, setData] = useState([]);
   const [info, setInfo] = useState({});
+
+  const columns = [
+    {
+      title: t('times-rank'),
+      dataIndex: "rank",
+      key: "rank",
+    },
+    {
+      title: t('country-rank'),
+      dataIndex: "c_rank",
+      key: "c_rank",
+    },
+    {
+      title: t('institution'),
+      dataIndex: "school_name",
+      key: "school_name",
+      render: (text, record, index) => {
+        return <div className="flex items-center gap-10"><span className="font-bold">{text}</span></div>
+      }
+    },
+    {
+      title: t('state'),
+      dataIndex: "state_name",
+      key: "state_name",
+    },
+    {
+      title: t('city'),
+      dataIndex: "city_name",
+      key: "city_name",
+    },
+  ];
 
   useEffect(() => {
     const getSelectList = async () => {
@@ -78,7 +83,7 @@ const University = () => {
       <Navbar />
       <div>
         <div>
-          <img src="/img/Find_my_university.jpg" alt="university" />
+          <img src="/img/Find_my_university.jpg" alt="university" className="w-full"/>
         </div>
         <div className="flex justify-center py-10">
           <div className="px-5 md:px-0 w-full md:w-3/5 ">

@@ -44,8 +44,9 @@ const Detail = () => {
               <div className="text-2xl font-bold main-color">
                 {data.school_name}
               </div>
+              <div className="border-t pb-5"></div>
               <div className="flex gap-5">
-                <div>
+                <div className="flex-1">
                   <div className="p-5">
                     <div>
                       <img src={data.logo_url} width="220" />
@@ -76,11 +77,12 @@ const Detail = () => {
                   <img src={data.school_image_url} />
                 </div>
               </div>
+              <div className="border-b pt-5"></div>
               <div className="text-3xl fotn-bold pt-5 main-color">{t('overview')}: {data.school_name}</div>
               <div className="info-graph pt-5 leading-7" dangerouslySetInnerHTML={{__html: data.school_info}}></div>
               <div className="flex gap-5 mb-10">
                 <div className="w-1/2"><img width="w-full" src={data.city_image_url} /></div>
-                <div className="w-1/2"><div className="text-3xl fotn-bold pt-5 main-color">{t('location')}:{data.city}</div>
+                <div className="w-1/2"><div className="text-3xl fotn-bold main-color">{t('location')}: {data.city}</div>
                   <div className="info-graph pt-5 leading-7" dangerouslySetInnerHTML={{__html: data.city_info}}></div></div>
               </div>
             </div>

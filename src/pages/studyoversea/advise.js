@@ -14,7 +14,7 @@ const Advise = () => {
       <Navbar />
       <div>
         <div>
-          <img src="/img/course_advice.jpg" alt="university" />
+          <img src="/img/course_advice.jpg" alt="university" className="w-full"/>
         </div>
         <div className="flex justify-center">
           <HeadingSection img={'/img/Icon-Turnitin Feedback.png'} header={t('course-advise')} desc={t('course-advise-desc')} />

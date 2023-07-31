@@ -7,10 +7,6 @@ const navigation = [
     route: "/",
   },
   {
-    label: "recommend",
-    route: "/testimonials",
-  },
-  {
     label: "oversea",
     route: "/studyoversea",
   },

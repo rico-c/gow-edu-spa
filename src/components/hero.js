@@ -13,9 +13,7 @@ const labelStyle = {
 
 const Hero = () => {
   const {t,i18n } = useTranslation("common");
-  // const router = useRouter();
-  const locale = i18n.locale;
-
+  const locale = i18n.language;
   return (
     <>
       <Carousel effect="fade" autoplay autoplaySpeed={4000} swipeToSlide draggable className="w-full" style={{minHeight: "calc(100vw * 0.36)"}}>
@@ -29,6 +27,7 @@ const Hero = () => {
           <img
             src={"/banner/home_banner1.png"}
             alt="Hero Illustration"
+            className="w-full"
           />
         </div>
         <div className="relative">
@@ -41,6 +40,7 @@ const Hero = () => {
           <img
             src={"/banner/home_banner2.png"}
             alt="Hero Illustration"
+            className="w-full"
           />
         </div>
         <div className="relative">
@@ -53,6 +53,7 @@ const Hero = () => {
           <img
             src={"/banner/home_banner3.png"}
             alt="Hero Illustration"
+            className="w-full"
           />
         </div>
       </Carousel>

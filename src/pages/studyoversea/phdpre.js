@@ -14,7 +14,7 @@ const PhdPre = () => {
       <Navbar />
       <div>
         <div>
-          <img src="/img/phd_preparation.jpg" alt="university" />
+          <img src="/img/phd_preparation.jpg" alt="university" className="w-full"/>
         </div>
         <div className="flex justify-center py-10">
           wip

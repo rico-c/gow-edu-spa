@@ -21,14 +21,14 @@ const StudyOversea = () => {
   return (
     <>
       <Navbar />
-      <div className="pb-5">
+      <div className="pb-5" >
         <div>
-          <img src={'/img/Study_overseas.jpg'} />
+          <img src={'/img/Study_overseas.jpg'} className="w-full"/>
         </div>
         <div className="flex justify-center">
           <HeadingSection img={'/img/Icon--Leader Prep.png'} header={t('oversea')} desc={t('oversea-desc')} />
         </div>
-        <div>
+        <div className="pt-10" style={{backgroundColor: 'rgb(246, 246, 246)'}}>
           <LessonItem
             icon={"/icon/Icon-Turnitin Feedback@2x.png"}
             title={t("course-advise")}
@@ -48,7 +48,7 @@ const StudyOversea = () => {
             link="/studyoversea/phdpre"
           />
         </div>
-        <div className="md:flex gap-5 justify-center">
+        <div className="md:flex gap-5 justify-center" style={{backgroundColor: 'rgb(246, 246, 246)'}}>
           <LessonItem
             isCol
             icon={"/icon/icon_phD preparation@3x.png"}

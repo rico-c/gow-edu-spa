@@ -35,3 +35,6 @@ code {
 .slick-slide {
   transition: opacity 1000ms ease 0s, visibility 1000ms ease 0s !important;
 }
+.feedback-card-shadow div{
+  line-height: 2;
+}
