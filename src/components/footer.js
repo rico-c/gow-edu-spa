@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 
 const navigation = [
@@ -48,7 +48,7 @@ export default function Footer() {
             <img src="/logo/View-logo.png" alt="N" width="100" height="100" />
           </Link>
         </div>
-        <div className="">
+        <div className="py-5 md:py-0">
           {navigation.map((item, index) => (
             <Link
               key={index}
@@ -58,6 +58,23 @@ export default function Footer() {
               {t(item.label)}
             </Link>
           ))}
+        </div>
+        <div className="flex gap-5 justify-center items-center">
+          <div className="cursor-pointer">
+            <img src="/logo/fb.png" width="30" />
+          </div>
+          <div className="cursor-pointer">
+            <img src="/logo/ins.png" width="30" />
+          </div>
+          <div className="cursor-pointer">
+            <img src="/logo/twitter.png" width="30" />
+          </div>
+          <div className="cursor-pointer">
+            <img src="/logo/tt.png" width="30" />
+          </div>
+        </div>
+        <div className="flex justify-center pt-5 md:pt-0">
+          <img src={"/qr/wechat.jpeg"} width="100" />
         </div>
       </div>
 
