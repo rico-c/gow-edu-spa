@@ -38,3 +38,11 @@ code {
 .feedback-card-shadow div{
   line-height: 2;
 }
+.ant-float-btn {
+  bottom: 100px !important;
+  width: 60px;
+  height: 60px;
+}
+.ant-float-btn-content {
+  overflow: visible;
+}

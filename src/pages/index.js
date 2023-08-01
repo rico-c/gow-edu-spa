@@ -1,23 +1,24 @@
-import { useEffect } from "react";
- 
+import {useEffect} from "react";
+
 import Hero from "../components/hero";
 import Navbar from "../components/navbar";
 import SectionTitle from "../components/sectionTitle";
 import Feedback from "../components/feedback";
 import Lesson from "../components/lesson";
 import Footer from "../components/footer";
-import { useTranslation } from "react-i18next";
+import {useTranslation} from "react-i18next";
+import {WechatFloat} from "../components/wechatfloat";
 
 const Home = () => {
-  const { t } = useTranslation("common");
+  const {t} = useTranslation("common");
 
   useEffect(() => {
-    (window).$crisp=[];
-    (window).CRISP_WEBSITE_ID="e60fe710-4049-471d-8dab-b61e41152145";
-    let d=document;
-    let s=d.createElement("script");
-    s.src="https://client.crisp.chat/l.js";
-    (s).async=1;
+    (window).$crisp = [];
+    (window).CRISP_WEBSITE_ID = "e60fe710-4049-471d-8dab-b61e41152145";
+    let d = document;
+    let s = d.createElement("script");
+    s.src = "https://client.crisp.chat/l.js";
+    (s).async = 1;
     d.getElementsByTagName("head")[0].appendChild(s);
   }, [])
 
@@ -37,6 +38,7 @@ const Home = () => {
       <Lesson />
       <Feedback />
       <Footer />
+      <WechatFloat />
     </>
   );
 }
