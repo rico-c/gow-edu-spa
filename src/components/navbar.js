@@ -127,7 +127,7 @@ const Navbar = () => {
                         {t(item.label)}
                       </Link>
                     ))}
-                    <div className="text-center w-full px-4 py-2 -ml-4 text-gray-500 rounded-md  hover:text-cyan-700 focus:text-cyan-700  focus:outline-none">
+                    <div className="text-center w-full px-4 py-2 text-gray-500 rounded-md  hover:text-cyan-700 focus:text-cyan-700  focus:outline-none">
                       <IconButton onClick={changeLang} className="text-gray-500  ">
                         <TranslateIcon />
                       </IconButton>
