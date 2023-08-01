@@ -12,7 +12,7 @@ import Privacy from "./pages/privacy";
 import PhdReady from "./pages/phdready";
 import MasterClass from "./pages/masterclass";
 import StudyOversea from "./pages/studyoversea/index";
-
+import {WechatFloat} from "./components/wechatfloat";
 function App() {
   return (
     <div className="App">
@@ -53,6 +53,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
+      <WechatFloat />
     </div>
   );
 }

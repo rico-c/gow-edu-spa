@@ -38,7 +38,6 @@ const Home = () => {
       <Lesson />
       <Feedback />
       <Footer />
-      <WechatFloat />
     </>
   );
 }
