@@ -1,17 +1,21 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import commonEn from './locales/en/common.json';
+import studyformEn from './locales/en/studyform.json';
 import universityEn from './locales/en/university.json';
 import commonZh from './locales/zh/common.json';
+import studyformZh from './locales/zh/studyform.json';
 import universityZh from './locales/zh/university.json';
 
 const resources = {
   en: {
     common: commonEn,
+    studyform: studyformEn,
     university: universityEn
   },
   zh: {
     common: commonZh,
+    studyform: studyformZh,
     university: universityZh
   }
 };

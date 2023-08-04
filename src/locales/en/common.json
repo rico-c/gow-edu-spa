@@ -79,5 +79,6 @@
   "subscribe-callback": "Thank you. Your weekly subscription to Dr Robert’s Success Secrets has been activated, and will start next week.",
   "subscribe-error": "Please accept the terms and conditions to continue",
   "subscribe-param": "Please input essential content",
-  "subscribe-wechat": "Subscribe to our Official Wechat Account"
+  "subscribe-wechat": "Subscribe to our Official Wechat Account",
+  "subscribe-format": "Please provide valid format email"
 }

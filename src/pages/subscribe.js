@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Form, Input, Button, Checkbox, message } from "antd";
 import { fetchNewLetter } from "../api/new-letter";
 import { useState } from "react";
+import {checkEmailFormat} from "../utils/checkFormat";
 import { Link } from "react-router-dom";
 
 export const Subscribe = () => {
@@ -31,6 +32,14 @@ export const Subscribe = () => {
       messageApi.open({
         type: "error",
         content: t("subscribe-param"),
+      });
+
+      return;
+    }
+    if(!checkEmailFormat(email)) {
+      messageApi.open({
+        type: "error",
+        content: t("subscribe-format"),
       });
 
       return;

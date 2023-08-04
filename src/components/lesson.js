@@ -8,7 +8,7 @@ export const LessonItem = ({icon, title, desc, link, isCol}) => {
   const {t} = useTranslation("common");
   return (
     <div className="flex justify-center mt-10">
-      <div className={`flex shadow rounded-lg bg-white ${isCol ? 'flex-col w-5/6 md:w-80 items-center' : 'w-5/6 md:w-1/2'}`}>
+      <div className={`flex shadow rounded-lg bg-white ${isCol ? 'flex-col w-5/6 md:w-80 items-center' : 'w-5/6 md:w-5/6'}`}>
         <div
           style={{width: isCol ? "200px" : "410px"}}
           className={`hidden md:flex justify-center items-center ${isCol ? 'flex justify-center p-5' : 'p-10 border-r'}`}

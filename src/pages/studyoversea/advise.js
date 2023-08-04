@@ -7,7 +7,6 @@ import {HeadingSection } from '../../components/headingSection'
 const Advise = () => {
   const {t} = useTranslation("university");
 
-
   return (
     <>
        
