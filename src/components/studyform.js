@@ -149,7 +149,7 @@ export const StudyForm = ({shadow}) => {
         <Checkbox>{t('agree')} <a className='underline' href="/terms">Terms</a> , <a className='underline' href="/privacy">Privacy Policy</a>  </Checkbox>
       </Form.Item>
       <Form.Item >
-        <Button className='w-full' htmlType="submit" type="primary" style={{backgroundColor: '#1677ff'}}>{t('submit')}</Button>
+        <Button className='w-full' htmlType="submit" type="primary" style={{backgroundColor: '#f05622'}}>{t('submit')}</Button>
       </Form.Item>
     </Form>
   </div>

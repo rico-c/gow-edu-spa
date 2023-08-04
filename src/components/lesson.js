@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import {RightOutlined} from "@ant-design/icons";
 import {Button} from "antd";
@@ -35,25 +35,27 @@ export const LessonItem = ({icon, title, desc, link, isCol}) => {
 const Lesson = () => {
   const {t} = useTranslation("common");
   return (
-    <div style={{backgroundColor: '#f6f6f6'}} className="py-8">
-      <LessonItem
-        icon={"/img/Icon-Performance Coaching@2x.png"}
-        title={t("lesson-title1")}
-        desc={t("lesson-desc1")}
-        link="/masterclass"
-      />
-      <LessonItem
-        icon={"/img/Icon--Leader Prep.png"}
-        title={t("lesson-title2")}
-        desc={t("lesson-desc2")}
-        link="/studyoversea"
-      />
-      <LessonItem
-        icon={"/icon/icon_phD preparation@3x.png"}
-        title={t("lesson-title3")}
-        desc={t("lesson-desc3")}
-        link="/phdready"
-      />
+    <div style={{backgroundColor: '#f6f6f6'}} className="py-8 flex justify-center">
+      <div className="w-1/2">
+        <LessonItem
+          icon={"/img/Icon-Performance Coaching@2x.png"}
+          title={t("lesson-title1")}
+          desc={t("lesson-desc1")}
+          link="/masterclass"
+        />
+        <LessonItem
+          icon={"/img/Icon--Leader Prep.png"}
+          title={t("lesson-title2")}
+          desc={t("lesson-desc2")}
+          link="/studyoversea"
+        />
+        <LessonItem
+          icon={"/icon/icon_phD preparation@3x.png"}
+          title={t("lesson-title3")}
+          desc={t("lesson-desc3")}
+          link="/phdready"
+        />
+      </div>
     </div>
   );
 };
