@@ -26,9 +26,9 @@ const {TextArea} = Input;
 
 const currentYear = new Date().getFullYear();
 
-const codes = uniq(Object.values(mobileCode).sort((a,b) => a - b))
+const codes = uniq(Object.values(mobileCode).sort((a, b) => a - b))
 
-const yearList = [currentYear + 5, currentYear + 4, currentYear + 3, currentYear + 2, currentYear + 1, currentYear]
+const yearList = [currentYear, currentYear + 1, currentYear + 2, currentYear + 3]
 
 export const StudyForm = ({shadow}) => {
   const {t, i18n} = useTranslation("studyform");
@@ -48,13 +48,13 @@ export const StudyForm = ({shadow}) => {
   );
 
   const handleFinish = (data) => {
-    if(!data.agree) {
+    if (!data.agree) {
       messageApi.open({
         type: "error",
         content: 'please agree our policy',
       });
     }
-    if(data.email !== data['email-repeat']) {
+    if (data.email !== data['email-repeat']) {
       messageApi.open({
         type: "error",
         content: 'email not match',
@@ -76,11 +76,13 @@ export const StudyForm = ({shadow}) => {
   }, [])
 
   return <div className="w-full p-5 bg-white">
-    <div className='text-xl font-bold'>
-      {t('title')}
-    </div>
-    <div className='py-5'>
-      {t('sub-title')}
+    <div style={{background: 'linear-gradient(to bottom, #0ACAD5, #0299C4)', color: '#fff', width: 'calc(100% + 2.5rem)', position: 'relative', top: '-1.25rem', left: '-1.25rem', padding: '1.25rem'}}>
+      <div className='text-xl font-bold'>
+        {t('title')}
+      </div>
+      <div className='py-5'>
+        {t('sub-title')}
+      </div>
     </div>
     <Form
       labelCol={{span: 24}}
@@ -96,10 +98,10 @@ export const StudyForm = ({shadow}) => {
       <Form.Item label={t('last-name')} name="lastname" required rules={[{required: true, message: 'Please input your last name'}]}>
         <Input />
       </Form.Item>
-      <Form.Item label={t('email-address')} name="email" required rules={[{ type: 'email' }, {required: true, message: 'Please input your email'}]}>
+      <Form.Item label={t('email-address')} name="email" required rules={[{type: 'email'}, {required: true, message: 'Please input your email'}]}>
         <Input />
       </Form.Item>
-      <Form.Item label={t('email-confirm')} name="email-repeat" required rules={[{ type: 'email' }, {required: true, message: 'Please input your email'}]}>
+      <Form.Item label={t('email-confirm')} name="email-repeat" required rules={[{type: 'email'}, {required: true, message: 'Please input your email'}]}>
         <Input />
       </Form.Item>
       <Form.Item label={t('current-country')} name="current-country">

@@ -30,9 +30,9 @@ const StudyOversea = () => {
           <HeadingSection img={'/img/Icon--Leader Prep.png'} header={t('oversea')} desc={t('oversea-desc')} />
         </div>
         <div className="flex justify-center pb-10" style={{backgroundColor: 'rgb(246, 246, 246)'}}>
-          <div className="block md:flex w-1/2">
-            <div className="w-3/4">
-              <div className="" >
+          <div className="block md:flex md:w-1/2">
+            <div className="md:w-3/4">
+              <div className="pl-10 md:pl-0 pr-10" >
                 <LessonItem
                   icon={"/icon/Icon-Turnitin Feedback@2x.png"}
                   title={t("course-advise")}
@@ -52,7 +52,7 @@ const StudyOversea = () => {
                   link="/studyoversea/phdpre"
                 />
               </div>
-              <div className="md:flex gap-5 justify-center" style={{backgroundColor: 'rgb(246, 246, 246)'}}>
+              <div className="pl-10 md:pl-0 pr-10 md:pr-0 md:flex gap-5 justify-center" style={{backgroundColor: 'rgb(246, 246, 246)'}}>
                 <LessonItem
                   isCol
                   icon={"/icon/icon_phD preparation@3x.png"}
@@ -69,7 +69,7 @@ const StudyOversea = () => {
                 />
               </div>
             </div>
-            <div className="w-1/4 mt-10" style={{minWidth: '300px'}}>
+            <div className="px-10 md:px-0 md:w-1/4 mt-10" style={{minWidth: '300px'}}>
               <StudyForm shadow/>
             </div>
 
