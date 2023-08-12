@@ -36,7 +36,7 @@ const Lesson = () => {
   const {t} = useTranslation("common");
   return (
     <div style={{backgroundColor: '#f6f6f6'}} className="py-8 flex justify-center">
-      <div className="w-1/2">
+      <div className="w-5/6 md:w-1/2">
         <LessonItem
           icon={"/img/Icon-Performance Coaching@2x.png"}
           title={t("lesson-title1")}

@@ -89,8 +89,10 @@ export const StudyForm = ({shadow}) => {
       wrapperCol={{span: 24}}
       layout="vertical"
       shadow={shadow}
+      onFocus={(e) => console.log(e)}
       onFinish={handleFinish}
       onFinishFailed={handleFailed}
+      style={{fontSize: '16px'}}
     >
       <Form.Item label={t('first-name')} name="firstname" required rules={[{required: true, message: 'Please input your first name'}]}>
         <Input />
@@ -111,7 +113,7 @@ export const StudyForm = ({shadow}) => {
         </Select>
       </Form.Item>
       <div className='flex gap-1'>
-        <Form.Item className='w-20' label="mobile" required rules={[{required: true, message: 'Please input your mobile'}]}>
+        <Form.Item className='w-20' label={t('mobile')} required rules={[{required: true, message: 'Please input your mobile'}]}>
           <Select showSearch filterOption={(input, option) =>
             (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
           }>
@@ -141,14 +143,14 @@ export const StudyForm = ({shadow}) => {
           {subjects.map((subject) => <Select.Option key={subject} value={subject}>{subject}</Select.Option>)}
         </Select>
       </Form.Item>
-      <Form.Item name="contact-me" valuePropName="checked">
+      {/* <Form.Item name="contact-me" valuePropName="checked">
         <Checkbox>{t('contact-me')}</Checkbox>
+      </Form.Item> */}
+       <Form.Item name="agree" valuePropName="checked">
+        <Checkbox defaultChecked>{t('agree')} <a className='underline' href="/terms">Terms</a> , <a className='underline' href="/privacy">Privacy Policy</a>  </Checkbox>
       </Form.Item>
       <Form.Item name="receive-updates" valuePropName="checked">
-        <Checkbox>{t('receive-updates')}</Checkbox>
-      </Form.Item>
-      <Form.Item name="agree" valuePropName="checked">
-        <Checkbox>{t('agree')} <a className='underline' href="/terms">Terms</a> , <a className='underline' href="/privacy">Privacy Policy</a>  </Checkbox>
+        <Checkbox defaultChecked>{t('receive-updates')}</Checkbox>
       </Form.Item>
       <Form.Item >
         <Button className='w-full' htmlType="submit" type="primary" style={{backgroundColor: '#f05622'}}>{t('submit')}</Button>
