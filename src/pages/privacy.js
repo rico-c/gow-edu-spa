@@ -10,7 +10,7 @@ const Privacy = () => {
        
       <Navbar />
       <div className="flex justify-center">
-        <div className="w-1/2">
+        <div className="w-5/6 md:w-1/2">
 
           <div class="commontitle text-3xl text-bold main-color text-center pb-5">Privacy Policy</div>
           <div class="col-lg-12 col-md-12 col-sm-12 col-12">

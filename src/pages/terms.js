@@ -10,7 +10,7 @@ export const Terms = () => {
        
       <Navbar />
       <div className="flex justify-center">
-        <div class="w-1/2 pb-10">
+        <div class="w-5/6 md:w-1/2 pb-10">
           <div class="commontitle text-3xl text-bold main-color text-center pb-5">Terms and Conditions</div>
 
           <div class="terms">
