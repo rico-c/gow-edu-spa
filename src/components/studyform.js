@@ -144,7 +144,7 @@ export const StudyForm = ({shadow}) => {
         </Select>
       </Form.Item>
       <Form.Item label={t('area')} name="area" required rules={[{required: true, message: 'Please select your area'}]}>
-        <Select open virtual={false} getPopupContainer={triggerNode => triggerNode.parentNode}>
+        <Select virtual={false} getPopupContainer={triggerNode => triggerNode.parentNode}>
           {subjects.map((subject) => <Select.Option key={subject} value={subject}>{subject}</Select.Option>)}
         </Select>
       </Form.Item>
