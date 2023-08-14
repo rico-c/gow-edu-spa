@@ -1,9 +1,9 @@
 import Footer from "../../components/footer";
- 
+
 import Navbar from "../../components/navbar";
 import {useTranslation} from "react-i18next";
 import {List, Select, Table} from "antd";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import {fetchSelectList, fetchRankingList} from "../../api/rank";
 import {useEffect, useState} from "react";
 import isMobile from 'ismobilejs';
@@ -22,17 +22,43 @@ const University = () => {
 
   const mobile = isMobile()
 
-  const columns = [
+  const columns = mobile.any ? [
+    {
+      title: t('times-rank'),
+      dataIndex: "rank",
+      key: "rank",
+      width: 60
+    },
+    {
+      title: t('country-rank'),
+      dataIndex: "c_rank",
+      key: "c_rank",
+      width: 75
+    },
+    {
+      title: t('institution'),
+      dataIndex: "school_name",
+      key: "school_name",
+      render: (text, record, index) => {
+        return <div className="flex items-center gap-10"><span className="font-bold">{text}</span></div>
+      }
+    },
+    {
+      title: t('city'),
+      dataIndex: "city_name",
+      key: "city_name",
+    },
+  ] : [
     {
       title: t('times-rank'),
       dataIndex: "rank",
       key: "rank",
     },
     {
-       title: t('country-rank'),
-       dataIndex: "c_rank",
-       key: "c_rank",
-     },
+      title: t('country-rank'),
+      dataIndex: "c_rank",
+      key: "c_rank",
+    },
     {
       title: t('institution'),
       dataIndex: "school_name",
@@ -82,11 +108,11 @@ const University = () => {
 
   return (
     <>
-       
+
       <Navbar />
       <div>
         <div>
-          <img src="/img/Find_my_university.jpg" alt="university" className="w-full"/>
+          <img src="/img/Find_my_university.jpg" alt="university" className="w-full" />
         </div>
         <div className="flex justify-center py-10">
           <div className="px-5 md:px-0 w-full md:w-3/5 ">
@@ -144,7 +170,7 @@ const University = () => {
               {t("partner")} - <span className="main-color">{info.country_name}</span>
             </div>
             <div>
-              <Table className="w-full" tableLayout="fixed" dataSource={data} columns={columns} rowClassName={(record, index) => {
+              <Table tableLayout={mobile.any ? "fixed" : "auto"} size={mobile.any ? 'small' : 'large'} className="w-full" dataSource={data} columns={columns} rowClassName={(record, index) => {
                 let className = 'light-row';
                 if (index % 2 === 1) className = 'dark-row';
                 return className;

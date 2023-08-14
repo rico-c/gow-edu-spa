@@ -47,3 +47,9 @@ code {
 .ant-float-btn-content {
   overflow: visible;
 }
+.rc-virtual-list::-webkit-scrollbar {
+  display: none; /* Chrome Safari */
+}
+.rc-virtual-list-holder::-webkit-scrollbar {
+  display: none; /* Chrome Safari */
+}
