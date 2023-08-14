@@ -39,10 +39,10 @@ code {
   line-height: 2;
 }
 .ant-float-btn {
-  bottom: 100px !important;
+  /* bottom: 90px !important; */
   width: 60px;
   height: 60px;
-  right: 15px;
+  /* right: 25px; */
 }
 .ant-float-btn-content {
   overflow: visible;
