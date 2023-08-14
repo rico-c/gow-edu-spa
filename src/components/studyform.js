@@ -109,7 +109,7 @@ export const StudyForm = ({shadow}) => {
       <Form.Item label={t('current-country')} name="current-country">
         <Select
 
-          virtual={true}
+          virtual={false}
 
           getPopupContainer={triggerNode => triggerNode.parentNode}
           // showSearch 
@@ -122,7 +122,7 @@ export const StudyForm = ({shadow}) => {
       <div className='flex gap-1'>
         <Form.Item className='w-20' label={t('mobile')} required rules={[{required: true, message: 'Please input your mobile'}]}>
           <Select
-            virtual={true}
+            virtual={false}
             filterOption={(input, option) =>
               (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
             } getPopupContainer={triggerNode => triggerNode.parentNode}>
@@ -136,7 +136,7 @@ export const StudyForm = ({shadow}) => {
 
       <Form.Item label={t('destination')} name="destination" required rules={[{required: true, message: 'Please select your destination'}]}>
         <Select
-          virtual={true}
+          virtual={false}
           getPopupContainer={triggerNode => triggerNode.parentNode}>
           {rankdata.map(item => <Select.Option key={item.country_code} value={item.country_code}>{item.country_name}</Select.Option>)}
 
@@ -144,7 +144,7 @@ export const StudyForm = ({shadow}) => {
       </Form.Item>
       <Form.Item label={t('year')} name="year" required rules={[{required: true, message: 'Please select year'}]}>
         <Select
-          virtual={true}
+          virtual={false}
           getPopupContainer={triggerNode => triggerNode.parentNode}>
           {
             yearList.map((year) => <Select.Option key={year} value={year}>{year}</Select.Option>)
@@ -153,7 +153,7 @@ export const StudyForm = ({shadow}) => {
       </Form.Item>
       <Form.Item label={t('area')} name="area" required rules={[{required: true, message: 'Please select your area'}]}>
         <Select
-          virtual={true}
+          virtual={false}
           getPopupContainer={triggerNode => triggerNode.parentNode}>
           {subjects.map((subject) => <Select.Option key={subject} value={subject}>{subject}</Select.Option>)}
         </Select>
