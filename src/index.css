@@ -42,6 +42,7 @@ code {
   bottom: 100px !important;
   width: 60px;
   height: 60px;
+  right: 15px;
 }
 .ant-float-btn-content {
   overflow: visible;

@@ -6,6 +6,7 @@ import {List, Select, Table} from "antd";
 import { Link } from "react-router-dom";
 import {fetchSelectList, fetchRankingList} from "../../api/rank";
 import {useEffect, useState} from "react";
+import isMobile from 'ismobilejs';
 
 const University = () => {
   const {t} = useTranslation("university");
@@ -19,6 +20,8 @@ const University = () => {
   const [data, setData] = useState([]);
   const [info, setInfo] = useState({});
 
+  const mobile = isMobile()
+
   const columns = [
     {
       title: t('times-rank'),
@@ -26,10 +29,10 @@ const University = () => {
       key: "rank",
     },
     {
-      title: t('country-rank'),
-      dataIndex: "c_rank",
-      key: "c_rank",
-    },
+       title: t('country-rank'),
+       dataIndex: "c_rank",
+       key: "c_rank",
+     },
     {
       title: t('institution'),
       dataIndex: "school_name",
@@ -91,7 +94,7 @@ const University = () => {
               {t("title")}
             </div>
             <div className="flex items-center gap-5 pb-5 text-lg">
-              <img src="/img/icon_icon_Get connected.png" width="130px" />
+              <img className="hidden md:block" src="/img/icon_icon_Get connected.png" width="130px" />
               {t("desc")}
             </div>
             <div className="flex justify-center pb-5">
@@ -141,7 +144,7 @@ const University = () => {
               {t("partner")} - <span className="main-color">{info.country_name}</span>
             </div>
             <div>
-              <Table dataSource={data} columns={columns} rowClassName={(record, index) => {
+              <Table className="w-full" tableLayout="fixed" dataSource={data} columns={columns} rowClassName={(record, index) => {
                 let className = 'light-row';
                 if (index % 2 === 1) className = 'dark-row';
                 return className;
