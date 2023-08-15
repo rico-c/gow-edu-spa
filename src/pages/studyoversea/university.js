@@ -53,11 +53,13 @@ const University = () => {
       title: t('times-rank'),
       dataIndex: "rank",
       key: "rank",
+      width: 140
     },
     {
       title: t('country-rank'),
       dataIndex: "c_rank",
       key: "c_rank",
+      width: 150
     },
     {
       title: t('institution'),
