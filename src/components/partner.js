@@ -1,113 +1,105 @@
-import React, { useState } from "react";
-import { useTranslation } from "react-i18next";
-import { Button, Form, Input, Radio, Space, Select, Upload } from "antd";
-import { UploadOutlined } from '@ant-design/icons';
+import React, {useEffect, useState} from "react";
+import {useTranslation} from "react-i18next";
+import {Button, Form, Input} from "antd";
+import {MainButton} from "./button";
+import store from 'store';
 
-const { TextArea } = Input;
-const { Option } = Select;
+// const sentWaitTime = 15 * 60 * 1000;
+const sentWaitTime = 20 * 1000;
 
 const PartnerForm = () => {
-  const { t } = useTranslation("common");
+  const {t} = useTranslation("common");
   const [form] = Form.useForm();
 
+  const [sent, setSent] = useState(store.get('sent') === '1');
+  const [expire, setExpire] = useState(Number(store.get('expire')));
+
+  const [enterEnable, setEnterEnable] = useState(false);
+
+  useEffect(() => {
+    if (sent) {
+      setTimeout(() => {
+        setSent(false);
+        store.set('sent', '0');
+      }, expire - Date.now())
+    }
+  }, [])
+
+  const handleClick = () => {
+    store.set('sent', '1');
+    store.set('expire', Date.now() + sentWaitTime);
+    setSent(true);
+    setExpire(Date.now() + sentWaitTime)
+
+    setTimeout(() => {
+      setSent(false);
+      store.set('sent', '0');
+    }, sentWaitTime)
+  }
+
+  const handleFormChange = (data, allData) => {
+    const pass = allData.map(i => i.errors).every(i => i.length === 0);
+    if(pass) {
+      setEnterEnable(true)
+    }else {
+      setEnterEnable(false)
+    }
+  }
+
   return (
-    <div className="flex justify-center mt-10 w-full">
-      <div className="shadow w-full max-w-2xl rounded p-10 mb-10">
+    <div className="flex justify-center pt-10 w-full">
+      <div className="shadow w-full max-w-2xl rounded p-10 mb-10 bg-white">
         <div className="text-3xl font-bold main-color mb-5">
-          {t("partner-title")}
+          {t("parter-interest")}
         </div>
         <div>
-          <Form form={form} layout="vertical">
-            <Form.Item
-              label={t("partner-title")}
-              name="name"
-              rules={[{ required: true }]}
-            >
-              <Input placeholder={t("partner-title")} />
-            </Form.Item>
-            <div dangerouslySetInnerHTML={{__html: t("partner-desc")}}></div>
+          <Form form={form} layout="vertical" onFieldsChange={handleFormChange}>
             <Form.Item
               label={t("partner-form-first-name")}
               name="firstname"
-              rules={[{ required: true }]}
+              rules={[{required: true}]}
             >
               <Input placeholder={t("partner-form-first-name")} />
             </Form.Item>
             <Form.Item
               label={t("partner-form-last-name")}
               name="lastname"
-              rules={[{ required: true }]}
+              rules={[{required: true}]}
             >
               <Input placeholder={t("partner-form-last-name")} />
             </Form.Item>
             <Form.Item
               label={t("partner-form-email")}
               name="email"
-              rules={[{ required: true }]}
+              rules={[{type: 'email', message: 'Please input correct email'}, {required: true, message: 'Please input your email'}]}
             >
               <Input placeholder={t("partner-form-email")} />
             </Form.Item>
             <Form.Item
-              label={t("partner-form-email-check")}
-              name="email-check"
-              rules={[{ required: true }]}
+              label={t("veri-code")}
+              name="verify-code"
+              rules={[{required: true, message: 'Please input verify code'}]}
             >
-              <Input placeholder={t("partner-form-email-check")} />
-            </Form.Item>
-            <Form.Item
-              label={t("partner-form-country")}
-              name="country"
-              rules={[{ required: true }]}
-            >
-              <Select
-                placeholder="Select a option and change input text above"
-                allowClear
-              >
-                <Option value="china">china</Option>
-                <Option value="australia">australia</Option>
-              </Select>
-            </Form.Item>
-            <Form.Item
-              label={t("partner-form-category")}
-              name="category"
-              rules={[{ required: true }]}
-            >
-              <Radio.Group>
-                <Space direction="vertical">
-                  <Radio value={1}>University/Education Provider</Radio>
-                </Space>
-              </Radio.Group>
-            </Form.Item>
-            <Form.Item
-              label={t("partner-form-file")}
-              name="file"
-              rules={[{ required: true }]}
-            >
-              <Upload action="/upload.do">
-                <Button icon={<UploadOutlined />}>Click to Upload</Button>
-              </Upload>
-            </Form.Item>
-            <Form.Item
-              label={t("partner-form-message")}
-              name="feedback"
-              rules={[{ required: true }]}
-            >
-              <TextArea placeholder={t("partner-form-message")} />
+              <div className="flex gap-5 items-baseline">
+                <Input />
+                <MainButton disabled={sent} onClick={handleClick}>{sent ? t('sent-code') : t('get-code')}</MainButton>
+              </div>
             </Form.Item>
             <Form.Item>
               <Button
+                disabled={!enterEnable}
                 size="large"
-                style={{ backgroundColor: "#F05523", color: "#fff" }}
+                style={enterEnable && {backgroundColor: "#F05523", color: "#fff"}}
                 className="w-full"
                 htmlType="submit"
               >
-                {t("partner-form-apply")}
+                {t("enter")}
               </Button>
             </Form.Item>
           </Form>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 

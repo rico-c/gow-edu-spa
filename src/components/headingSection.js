@@ -12,7 +12,7 @@ export const HeadingSection = ({
       <div className="flex justify-center">
         <img src={img} width="130" />
       </div>
-      <div className="text-center pt-5">
+      <div className="pt-5">
         <div className="text-3xl font-bold">{header}</div>
         <div className="pt-2">{desc}</div>
       </div>

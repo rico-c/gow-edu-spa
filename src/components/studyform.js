@@ -100,10 +100,10 @@ export const StudyForm = ({shadow}) => {
       <Form.Item label={t('last-name')} name="lastname" required rules={[{required: true, message: 'Please input your last name'}]}>
         <Input />
       </Form.Item>
-      <Form.Item label={t('email-address')} name="email" required rules={[{type: 'email'}, {required: true, message: 'Please input your email'}]}>
+      <Form.Item label={t('email-address')} name="email" required rules={[{type: 'email', message: 'Please input correct email'}, {required: true, message: 'Please input your email'}]}>
         <Input />
       </Form.Item>
-      <Form.Item label={t('email-confirm')} name="email-repeat" required rules={[{type: 'email'}, {required: true, message: 'Please input your email'}]}>
+      <Form.Item label={t('email-confirm')} name="email-repeat" required rules={[{type: 'email', message: 'Please input correct email'}, {required: true, message: 'Please input your email'}]}>
         <Input />
       </Form.Item>
       <Form.Item label={t('current-country')} name="current-country">

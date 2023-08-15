@@ -2,17 +2,20 @@ import Footer from "../../components/footer";
 
 import Navbar from "../../components/navbar";
 import {useTranslation} from "react-i18next";
-import {List, Select, Table} from "antd";
+import {List, Select, Table, Modal} from "antd";
 import {Link} from "react-router-dom";
 import {fetchSelectList, fetchRankingList} from "../../api/rank";
 import {useEffect, useState} from "react";
 import isMobile from 'ismobilejs';
+import {MainButton} from '../../components/button'
+import {StudyForm} from "../../components/studyform";
 
 const University = () => {
   const {t} = useTranslation("university");
 
   const [countries, setCountries] = useState([]);
   const [years, setYears] = useState([]);
+  const [isModalOpen, setOpen] = useState(false);
 
   const [currentCountry, setCurrentCountry] = useState();
   const [currentYear, setCurrentYear] = useState();
@@ -178,6 +181,7 @@ const University = () => {
                 return className;
               }} />
             </div>
+            <MainButton size="large" className="" onClick={() => setOpen(true)}>{t('help-me-abroad')}</MainButton>
             <div className="text-xl font-bold py-5">
               {t("top-university")} - {info.country_name}
             </div>
@@ -194,6 +198,9 @@ const University = () => {
         </div>
       </div>
       <Footer />
+      <Modal {...mobile.any ? {style: {top: 0, margin: 0, maxWidth: '100%', height: '100%'}} : { }} footer={null} open={isModalOpen} onCancel={() => {setOpen(false)}}>
+      <div className="pt-7"><StudyForm /></div>
+    </Modal >
     </>
   );
 };

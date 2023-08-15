@@ -85,5 +85,19 @@
   "subscribe-error": "请先同意协议",
   "subscribe-param": "请输入完整信息",
   "subscribe-wechat": "扫码添加微信",
-  "subscribe-format": "Please provide valid format data"
+  "subscribe-format": "Please provide valid format data",
+  "partner-pdf": "Find more about the Gow Education",
+  "parter-program": "Partner Program",
+  "parter-interest": "Expression of Interest",
+  "get-code": "Get Verification Code",
+  "veri-code": "Verification Code",
+  "sent-code": "Code sent to email",
+  "enter": "Enter",
+  "cancel": "Cancel",
+  "details": "Your Details",
+  "address1": "Address 1",
+  "address2": "Address 2",
+  "state": "State/Province",
+  "Affiliate": "Lead Affiliate No. (if applicable)",
+  "residence": "Country of residence"
 }
