@@ -93,6 +93,8 @@
   "address1": "Address 1",
   "address2": "Address 2",
   "state": "State/Province",
-  "Affiliate": "Lead Affiliate No. (if applicable)",
-  "residence": "Country of residence"
+  "affiliate": "Lead Affiliate No. (if applicable)",
+  "residence": "Country of residence",
+  "abn-num": "Enter Your ABN",
+  "abn-validate": "Validate"
 }

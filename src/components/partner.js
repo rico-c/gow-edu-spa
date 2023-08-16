@@ -7,7 +7,7 @@ import store from 'store';
 // const sentWaitTime = 15 * 60 * 1000;
 const sentWaitTime = 20 * 1000;
 
-const PartnerForm = () => {
+const PartnerForm = ({onEnter}) => {
   const {t} = useTranslation("common");
   const [form] = Form.useForm();
 
@@ -38,13 +38,19 @@ const PartnerForm = () => {
   }
 
   const handleFormChange = (data, allData) => {
-    const pass = allData.map(i => i.errors).every(i => i.length === 0);
+    console.log(11, allData);
+    const pass = allData.every(i => i.errors.length === 0 && i.touched);
     if(pass) {
       setEnterEnable(true)
     }else {
       setEnterEnable(false)
     }
   }
+
+  const handleFinish = (data) => {
+    console.log(data);
+    onEnter();
+  } 
 
   return (
     <div className="flex justify-center pt-10 w-full">
@@ -53,7 +59,7 @@ const PartnerForm = () => {
           {t("parter-interest")}
         </div>
         <div>
-          <Form form={form} layout="vertical" onFieldsChange={handleFormChange}>
+          <Form form={form} layout="vertical" onFieldsChange={handleFormChange} onFinish={handleFinish}>
             <Form.Item
               label={t("partner-form-first-name")}
               name="firstname"
