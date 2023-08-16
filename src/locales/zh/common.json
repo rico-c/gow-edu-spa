@@ -101,5 +101,6 @@
   "affiliate": "Lead Affiliate No. (if applicable)",
   "residence": "Country of residence",
   "abn-num": "Enter Your ABN",
-  "abn-validate": "Validate"
+  "abn-validate": "Validate",
+  "mobile": "Mobile"
 }
