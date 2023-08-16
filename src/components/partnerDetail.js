@@ -46,7 +46,7 @@ const PartnerDetail = ({onCancel}) => {
   }
 
   const handleFormChange = (data, allData) => {
-    const pass = allData.map(i => i.errors).every(i => i.length === 0);
+    const pass = allData.every(i => i.errors.length === 0 && i.touched);
     if (pass) {
       setEnterEnable(true)
     } else {
