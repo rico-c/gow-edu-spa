@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import {HashRouter as Router, Switch, Route, Link} from "react-router-dom";
 import "./App.css";
 import {Subscribe} from "./pages/subscribe";
 import {Terms} from "./pages/terms";

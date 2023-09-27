@@ -103,6 +103,7 @@ const PartnerDetail = ({onCancel}) => {
               label={t("state")}
               name="state"
               rules={[{required: true}]}
+              className="w-1/3"
             >
               <Input />
             </Form.Item>
@@ -125,10 +126,11 @@ const PartnerDetail = ({onCancel}) => {
               name="affiliate"
               rules={[{required: true}]}
             >
-              <Input />
+              <Input className="w-1/3"/>
             </Form.Item>
-            <Form.Item label={t('residence')} name="residence">
+            <Form.Item label={t('residence')} name="residence" className="w-1/3">
               <Select
+                className="w-1/3"
                 virtual={false}
                 getPopupContainer={triggerNode => triggerNode.parentNode}
                 options={coutryList}>
