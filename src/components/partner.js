@@ -97,7 +97,7 @@ const PartnerForm = ({onEnter}) => {
                 <Input />
               </div>
             </Form.Item>
-            <Form.Item>
+            <Form.Item className="text-center">
               <Button
                 disabled={!enterEnable}
                 size="large"
