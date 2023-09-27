@@ -15,6 +15,8 @@ const PartnerForm = ({onEnter}) => {
   const [expire, setExpire] = useState(Number(store.get('expire')));
 
   const [enterEnable, setEnterEnable] = useState(false);
+  const [hasBeforeInput, setHasBeforeInput] = useState(false);
+
 
   useEffect(() => {
     if (sent) {
@@ -38,19 +40,23 @@ const PartnerForm = ({onEnter}) => {
   }
 
   const handleFormChange = (data, allData) => {
-    console.log(11, allData);
     const pass = allData.every(i => i.errors.length === 0 && i.touched);
-    if(pass) {
+    if (pass) {
       setEnterEnable(true)
-    }else {
+    } else {
       setEnterEnable(false)
+    }
+    if(allData[0].value && allData[1].value && allData[2].value && allData[2].errors.length === 0) {
+      setHasBeforeInput(true)
+    } else {
+      setHasBeforeInput(false)
     }
   }
 
   const handleFinish = (data) => {
     console.log(data);
     onEnter();
-  } 
+  }
 
   return (
     <div className="flex justify-center pt-10 w-full">
@@ -81,14 +87,14 @@ const PartnerForm = ({onEnter}) => {
             >
               <Input placeholder={t("partner-form-email")} />
             </Form.Item>
+            <MainButton disabled={sent || !hasBeforeInput} onClick={handleClick}>{sent ? t('sent-code') : t('get-code')}</MainButton>
             <Form.Item
               label={t("veri-code")}
               name="verify-code"
               rules={[{required: true, message: 'Please input verify code'}]}
             >
-              <div className="flex gap-5 items-baseline">
+              <div className="flex gap-5 items-center">
                 <Input />
-                <MainButton disabled={sent} onClick={handleClick}>{sent ? t('sent-code') : t('get-code')}</MainButton>
               </div>
             </Form.Item>
             <Form.Item>
@@ -96,7 +102,7 @@ const PartnerForm = ({onEnter}) => {
                 disabled={!enterEnable}
                 size="large"
                 style={enterEnable && {backgroundColor: "#F05523", color: "#fff"}}
-                className="w-full"
+                className="w-1/2"
                 htmlType="submit"
               >
                 {t("enter")}

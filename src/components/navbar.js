@@ -17,7 +17,7 @@ const Navbar = () => {
 
   let location = useLocation();
   let params = useParams();
-  console.log(location,params, i18n)
+
   const navigation = [
     {
       label: "home",

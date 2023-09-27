@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from "react";
 import {useTranslation} from "react-i18next";
-import {Button, Form, Input, Select} from "antd";
+import {Button, Form, Input, Select, InputNumber} from "antd";
 import {MainButton} from "./button";
 import store from 'store';
 import {mobileCode} from '../constants/code'
 import {uniq} from 'lodash'
 import {countryEn, countryZh} from '../constants/country'
+import axios from 'axios';
 
 // const sentWaitTime = 15 * 60 * 1000;
 const sentWaitTime = 20 * 1000;
@@ -21,8 +22,27 @@ const PartnerDetail = ({onCancel}) => {
 
   const [enterEnable, setEnterEnable] = useState(false);
 
+  const [countryInfo, setCountryInfo] = useState();
+
   const lang = i18n.language;
   const coutryList = lang === 'zh' ? countryZh : countryEn;
+
+  useEffect(() => {
+    const fetchCountry = async () => {
+      const ipRes = await axios.get('https://api.ipify.org?format=json')
+      const ip = ipRes.data.ip;
+      const countryRes = await axios.get(`http://api.ipstack.com/${ip}?access_key=2de4bdfdc365f99f9e15ffb6020deb17`)
+      setCountryInfo(countryRes.data)
+      console.log(222, countryRes);
+
+      form.setFieldsValue({
+        residence: countryRes.data.country_code,
+        // 'mobile-code': countryRes.data.country_name,
+        state: countryRes.data.region_name
+      })
+    }
+    fetchCountry();
+  }, [])
 
   useEffect(() => {
     if (sent) {
@@ -87,7 +107,7 @@ const PartnerDetail = ({onCancel}) => {
               <Input />
             </Form.Item>
             <div className='flex gap-1'>
-              <Form.Item className='w-20' label={t('mobile')} required rules={[{required: true, message: 'Please input your mobile'}]}>
+              <Form.Item name="mobile-code" className='w-20' label={t('mobile')} required rules={[{required: true, message: 'Please input your mobile'}]}>
                 <Select
                   virtual={false}
                   filterOption={(input, option) =>
@@ -96,8 +116,8 @@ const PartnerDetail = ({onCancel}) => {
                   {codes.map(code => <Select.Option value={code}>+{code}</Select.Option>)}
                 </Select>
               </Form.Item>
-              <Form.Item label=" " rules={[{type: 'number'}, {required: true, message: 'Please input your mobile'}]}>
-                <Input />
+              <Form.Item name="mobile" label=" " rules={[{type: 'number'}]}>
+                <InputNumber style={{width: '200px'}} addonAfter={null} controls={false} />
               </Form.Item>
             </div>
             <Form.Item
@@ -114,7 +134,7 @@ const PartnerDetail = ({onCancel}) => {
                 options={coutryList}>
               </Select>
             </Form.Item>
-            <Form.Item
+            {countryInfo && countryInfo.residence === 'AUS' && <Form.Item
               label={t("abn-num")}
               name="abn"
               rules={[{required: true, message: 'Please input ABN'}]}
@@ -123,7 +143,7 @@ const PartnerDetail = ({onCancel}) => {
                 <Input />
                 <MainButton disabled={sent} onClick={handleClick}>{t('abn-validate')}</MainButton>
               </div>
-            </Form.Item>
+            </Form.Item>}
             <div className="flex gap-5 pt-5">
               <Button
                 size="large"

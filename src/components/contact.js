@@ -1,12 +1,15 @@
 import React, {useState} from "react";
 import {useTranslation} from "react-i18next";
 import {Button, Form, Input, Radio} from "antd";
+import Captcha from './captcha';
 
 const {TextArea} = Input;
 
 const ContactForm = () => {
   const {t} = useTranslation("common");
   const [form] = Form.useForm();
+
+
 
   return (
     <div className="flex flex-col items-center justify-center mt-10 w-full">
@@ -40,6 +43,7 @@ const ContactForm = () => {
             >
               <TextArea placeholder={t('contact-form-feedback')} />
             </Form.Item>
+            <div className="mb-5"><Captcha onVerify={(res) => console.log(222)}/></div>
             <Form.Item>
               <Button size="large" style={{backgroundColor: '#F05523', color: '#fff'}} className="w-full" htmlType="submit">Submit</Button>
             </Form.Item>
