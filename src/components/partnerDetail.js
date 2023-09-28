@@ -1,27 +1,29 @@
 import React, {useEffect, useState} from "react";
 import {useTranslation} from "react-i18next";
-import {Button, Form, Input, Select, InputNumber} from "antd";
+import {Button, Form, Input, Select, InputNumber, message} from "antd";
 import {MainButton} from "./button";
 import store from 'store';
 import {mobileCode} from '../constants/code'
 import {uniq} from 'lodash'
 import {countryEn, countryZh} from '../constants/country'
 import axios from 'axios';
+import {doSubmit} from '../api/partner'
 
 // const sentWaitTime = 15 * 60 * 1000;
 const sentWaitTime = 20 * 1000;
 
 const codes = uniq(Object.values(mobileCode).sort((a, b) => a - b))
 
-const PartnerDetail = ({onCancel}) => {
+const PartnerDetail = ({onCancel, step1Data}) => {
   const {t, i18n} = useTranslation("common");
   const [form] = Form.useForm();
+  const [messageApi, contextHolder] = message.useMessage();
 
   const [sent, setSent] = useState(store.get('sent') === '1');
   const [expire, setExpire] = useState(Number(store.get('expire')));
 
   const [enterEnable, setEnterEnable] = useState(false);
-
+  const [showABN, setShowABN] = useState(false)
   const [countryInfo, setCountryInfo] = useState();
 
   const lang = i18n.language;
@@ -66,11 +68,45 @@ const PartnerDetail = ({onCancel}) => {
   }
 
   const handleFormChange = (data, allData) => {
+    if (allData[6].value === 'AU') {
+      setShowABN(true)
+    } else {
+      setShowABN(false)
+    }
+    console.log(3, data, allData);
+
     const pass = allData.every(i => i.errors.length === 0 && i.touched);
     if (pass) {
       setEnterEnable(true)
     } else {
       setEnterEnable(false)
+    }
+  }
+
+  const handleSubmit = async (data) => {
+    console.log(1123, data, step1Data);
+    const params = {
+      first_name: step1Data.firstname, 
+      last_name: step1Data.lastname, 
+      email_address: step1Data.email, 
+      address1: data.address1, 
+      state:data.state, 
+      mobile_area_code: `+${data['mobile-code']}`, 
+      mobile_no: String(data.mobile), 
+      country_code: data.residence, 
+      country_name: '', 
+      abn: data.abn, 
+      entity_name: '', 
+      entity_type: ''
+    }
+
+    const res = await doSubmit(params)
+    if(res.status === 'success') {
+      messageApi.open({
+        type: 'success',
+        content: 'Submit success',
+        duration: 3,
+      });
     }
   }
 
@@ -85,7 +121,7 @@ const PartnerDetail = ({onCancel}) => {
           {t("details")}
         </div>
         <div>
-          <Form form={form} layout="vertical" onFieldsChange={handleFormChange}>
+          <Form form={form} layout="vertical" onFieldsChange={handleFormChange} onFinish={handleSubmit}>
             <Form.Item
               label={t("address1")}
               name="address1"
@@ -126,7 +162,7 @@ const PartnerDetail = ({onCancel}) => {
               name="affiliate"
               rules={[{required: true}]}
             >
-              <Input className="w-1/3"/>
+              <Input className="w-1/3" />
             </Form.Item>
             <Form.Item label={t('residence')} name="residence" className="w-1/3">
               <Select
@@ -136,7 +172,7 @@ const PartnerDetail = ({onCancel}) => {
                 options={coutryList}>
               </Select>
             </Form.Item>
-            {countryInfo && countryInfo.residence === 'AUS' && <Form.Item
+            {showABN && <Form.Item
               label={t("abn-num")}
               name="abn"
               rules={[{required: true, message: 'Please input ABN'}]}

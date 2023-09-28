@@ -13,6 +13,7 @@ const Partner = () => {
   const {t} = useTranslation("common");
 
   const [step, setStep] = useState(1);
+  const [step1Data, setStep1Data] = useState({});
 
   return (
     <>
@@ -27,7 +28,7 @@ const Partner = () => {
         </div>
         <div className="text-center pb-10 font-bold flex items-center justify-center flex-col md:flex-row">{t('partner-pdf')}<Button type="link" className="text-base font-bold flex items-center">{t("parter-program")}<RightOutlined /></Button></div>
         <div style={{background: 'rgb(246, 246, 246)'}}>
-          {step === 1 ? <PartnerForm onEnter={() => setStep(2)} /> : <PartnerDetail onCancel={() => setStep(1)} />}</div>
+          {step === 1 ? <PartnerForm onEnter={(data) => {setStep(2); setStep1Data(data)}} /> : <PartnerDetail step1Data={step1Data} onCancel={() => setStep(1)} />}</div>
       </div>
       <Footer />
     </>

@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react";
 import {useTranslation} from "react-i18next";
-import {Button, Form, Input} from "antd";
+import {Button, Form, Input, message} from "antd";
 import {MainButton} from "./button";
+import {fetchVerifyCode, doVerify} from '../api/partner'
 import store from 'store';
 
 // const sentWaitTime = 15 * 60 * 1000;
@@ -10,6 +11,7 @@ const sentWaitTime = 20 * 1000;
 const PartnerForm = ({onEnter}) => {
   const {t} = useTranslation("common");
   const [form] = Form.useForm();
+  const [messageApi, contextHolder] = message.useMessage();
 
   const [sent, setSent] = useState(store.get('sent') === '1');
   const [expire, setExpire] = useState(Number(store.get('expire')));
@@ -27,11 +29,13 @@ const PartnerForm = ({onEnter}) => {
     }
   }, [])
 
-  const handleClick = () => {
+  const handleClick = async () => {
     store.set('sent', '1');
     store.set('expire', Date.now() + sentWaitTime);
     setSent(true);
     setExpire(Date.now() + sentWaitTime)
+
+    fetchVerifyCode({email_address: form.getFieldValue('email')}).then(code => console.log(code))
 
     setTimeout(() => {
       setSent(false);
@@ -46,16 +50,24 @@ const PartnerForm = ({onEnter}) => {
     } else {
       setEnterEnable(false)
     }
-    if(allData[0].value && allData[1].value && allData[2].value && allData[2].errors.length === 0) {
+    if (allData[0].value && allData[1].value && allData[2].value && allData[2].errors.length === 0) {
       setHasBeforeInput(true)
     } else {
       setHasBeforeInput(false)
     }
   }
 
-  const handleFinish = (data) => {
-    console.log(data);
-    onEnter();
+  const handleFinish = async (data) => {
+    const res = await doVerify({email_address: form.getFieldValue('email'), code: form.getFieldValue('verify-code')})
+    if(res.status === 'success'){
+      onEnter(data);
+    } else {
+      messageApi.open({
+        type: 'error',
+        content: 'Verification code is incorrect',
+        duration: 3,
+      });
+    }
   }
 
   return (
