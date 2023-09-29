@@ -120,11 +120,13 @@ const PartnerDetail = ({onCancel, step1Data}) => {
 
     const res = await doSubmit(params)
     if (res.status === 'success') {
-      messageApi.open({
-        type: 'success',
-        content: 'Submit success',
-        duration: 3,
-      });
+      // messageApi.open({
+      //   type: 'success',
+      //   content: 'Submit success',
+      //   duration: 3,
+      // });
+      alert('Submit success');
+      window.location.reload();
     }
   }
 
