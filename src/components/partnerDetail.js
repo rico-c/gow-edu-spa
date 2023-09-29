@@ -8,9 +8,10 @@ import {uniq} from 'lodash'
 import {countryEn, countryZh} from '../constants/country'
 import axios from 'axios';
 import {doSubmit} from '../api/partner'
+import {fetchAbn} from '../api/abn'
 
 // const sentWaitTime = 15 * 60 * 1000;
-const sentWaitTime = 20 * 1000;
+const sentWaitTime = 5 * 1000;
 
 const codes = uniq(Object.values(mobileCode).sort((a, b) => a - b))
 
@@ -25,6 +26,7 @@ const PartnerDetail = ({onCancel, step1Data}) => {
   const [enterEnable, setEnterEnable] = useState(false);
   const [showABN, setShowABN] = useState(false)
   const [countryInfo, setCountryInfo] = useState();
+  const [abn, setAbn] = useState({})
 
   const lang = i18n.language;
   const coutryList = lang === 'zh' ? countryZh : countryEn;
@@ -60,7 +62,18 @@ const PartnerDetail = ({onCancel, step1Data}) => {
     store.set('expire', Date.now() + sentWaitTime);
     setSent(true);
     setExpire(Date.now() + sentWaitTime)
-
+    fetchAbn(form.getFieldValue('abn')).then(res => {
+      console.log(res);
+      if(!res.Abn) {
+        // messageApi.open({
+        //   type: 'info',
+        //   content: res.Message,
+        //   duration: 3,
+        // });
+        alert(res.Message)
+      }
+      setAbn(res)
+    })
     setTimeout(() => {
       setSent(false);
       store.set('sent', '0');
@@ -84,24 +97,29 @@ const PartnerDetail = ({onCancel, step1Data}) => {
   }
 
   const handleSubmit = async (data) => {
-    console.log(1123, data, step1Data);
+    console.log(11, data, abn);
+    if (data.residence === 'AU' && !abn.Abn) {
+      alert('please Validate ABN firstly')
+      return
+    }
+
     const params = {
-      first_name: step1Data.firstname, 
-      last_name: step1Data.lastname, 
-      email_address: step1Data.email, 
-      address1: data.address1, 
-      state:data.state, 
-      mobile_area_code: `+${data['mobile-code']}`, 
-      mobile_no: String(data.mobile), 
-      country_code: data.residence, 
-      country_name: '', 
-      abn: data.abn, 
-      entity_name: '', 
-      entity_type: ''
+      first_name: step1Data.firstname,
+      last_name: step1Data.lastname,
+      email_address: step1Data.email,
+      address1: data.address1,
+      state: data.state,
+      mobile_area_code: `+${data['mobile-code']}`,
+      mobile_no: String(data.mobile),
+      country_code: data.residence,
+      country_name: '',
+      abn: abn.Abn,
+      entity_name: abn.EntityName,
+      entity_type: abn.EntityTypeName,
     }
 
     const res = await doSubmit(params)
-    if(res.status === 'success') {
+    if (res.status === 'success') {
       messageApi.open({
         type: 'success',
         content: 'Submit success',
@@ -132,6 +150,7 @@ const PartnerDetail = ({onCancel, step1Data}) => {
             <Form.Item
               label={t("address2")}
               name="address2"
+              rules={[{required: true}]}
             >
               <Input />
             </Form.Item>
@@ -164,7 +183,7 @@ const PartnerDetail = ({onCancel, step1Data}) => {
             >
               <Input className="w-1/3" />
             </Form.Item>
-            <Form.Item label={t('residence')} name="residence" className="w-1/3">
+            <Form.Item label={t('residence')} name="residence" className="w-1/3" rules={[{required: true}]}>
               <Select
                 className="w-1/3"
                 virtual={false}
@@ -172,16 +191,23 @@ const PartnerDetail = ({onCancel, step1Data}) => {
                 options={coutryList}>
               </Select>
             </Form.Item>
-            {showABN && <Form.Item
+            {showABN && <><Form.Item
               label={t("abn-num")}
               name="abn"
               rules={[{required: true, message: 'Please input ABN'}]}
             >
               <div className="flex gap-5 items-baseline">
-                <Input />
+                <Input className="w-1/3"/>
                 <MainButton disabled={sent} onClick={handleClick}>{t('abn-validate')}</MainButton>
               </div>
-            </Form.Item>}
+            </Form.Item>
+              {abn.Abn &&
+                <div>
+                  <div className="mb-5">Entity Name: {abn.EntityName}</div>
+                  <div>Entity Type: {abn.EntityTypeName}</div>
+                </div>
+              }
+            </>}
             <div className="flex gap-5 pt-5">
               <Button
                 size="large"
