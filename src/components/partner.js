@@ -107,7 +107,7 @@ const PartnerForm = ({onEnter}) => {
               label={t("entity-name")}
               name="entityname"
             >
-              <Input placeholder={t("partner-form-email")} />
+              <Input placeholder={t("entity-name")} />
             </Form.Item>
             <MainButton disabled={sent || !hasBeforeInput} onClick={handleClick}>{sent ? t('sent-code') : t('get-code')}</MainButton>
             <Form.Item

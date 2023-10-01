@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useTranslation} from "react-i18next";
-import {Button, Form, Input, Select, InputNumber, message} from "antd";
+import {Button, Form, Input, Select, InputNumber, message, Radio} from "antd";
 import {MainButton} from "./button";
 import store from 'store';
 import {mobileCode} from '../constants/code'
@@ -25,6 +25,7 @@ const PartnerDetail = ({onCancel, step1Data, agreeTerms}) => {
 
   const [enterEnable, setEnterEnable] = useState(false);
   const [showABN, setShowABN] = useState(false)
+  const [showABNDetail, setShowABNDetail] = useState(false)
   const [countryInfo, setCountryInfo] = useState();
   const [abn, setAbn] = useState({})
 
@@ -64,7 +65,7 @@ const PartnerDetail = ({onCancel, step1Data, agreeTerms}) => {
     setExpire(Date.now() + sentWaitTime)
     fetchAbn(form.getFieldValue('abn')).then(res => {
       console.log(res);
-      if(!res.Abn) {
+      if (!res.Abn) {
         // messageApi.open({
         //   type: 'info',
         //   content: res.Message,
@@ -81,11 +82,19 @@ const PartnerDetail = ({onCancel, step1Data, agreeTerms}) => {
   }
 
   const handleFormChange = (data, allData) => {
-    if (allData[6].value === 'AU') {
+    console.log(2134, allData);
+    if (allData[7].value === 'AU') {
       setShowABN(true)
     } else {
       setShowABN(false)
     }
+
+    if (allData.length >= 9 && allData[8].value === 'yes') {
+      setShowABNDetail(true)
+    } else {
+      setShowABNDetail(false)
+    }
+
     console.log(3, data, allData);
 
     const pass = allData.filter(i => i.name[0] !== 'affiliate' && i.name[0] !== 'address2').every(i => i.errors.length === 0 && i.touched);
@@ -98,12 +107,12 @@ const PartnerDetail = ({onCancel, step1Data, agreeTerms}) => {
 
   const handleSubmit = async (data) => {
     console.log(11, data, abn, agreeTerms);
-    if (data.residence === 'AU' && !abn.Abn) {
+    if (data.residence === 'AU' && showABNDetail && !abn.Abn) {
       alert('please Validate ABN firstly')
       return
     }
 
-    if(!agreeTerms) {
+    if (!agreeTerms) {
       alert('please read and agree our terms and conditions firstly')
       return
     }
@@ -117,9 +126,10 @@ const PartnerDetail = ({onCancel, step1Data, agreeTerms}) => {
       mobile_area_code: `+${data['mobile-code']}`,
       mobile_no: String(data.mobile),
       country_code: data.residence,
-      country_name: '',
+      postcode: data.postcode,
+      is_abn_required: data.is_abn_required || 'no',
       abn: abn.Abn,
-      entity_name: abn.Abn? abn.EntityName : step1Data.entityname,
+      entity_name: abn.Abn ? abn.EntityName : step1Data.entityname,
       entity_type: abn.EntityTypeName,
     }
 
@@ -168,6 +178,14 @@ const PartnerDetail = ({onCancel, step1Data, agreeTerms}) => {
             >
               <Input />
             </Form.Item>
+            <Form.Item
+              label={'postcode'}
+              name="postcode"
+              rules={[{required: true}]}
+              className="w-full"
+            >
+              <Input />
+            </Form.Item>
             <div className='flex gap-1'>
               <Form.Item name="mobile-code" className='w-20' label={t('mobile')} required rules={[{required: true, message: 'Please input your mobile'}]}>
                 <Select
@@ -196,13 +214,22 @@ const PartnerDetail = ({onCancel, step1Data, agreeTerms}) => {
                 options={coutryList}>
               </Select>
             </Form.Item>
-            {showABN && <><Form.Item
+            {showABN && <Form.Item
+              label={t("abn-threshold")}
+              name="is_abn_required"
+            >
+              <Radio.Group>
+                <Radio value={'yes'}>Yes</Radio>
+                <Radio value={'no'}>No</Radio>
+              </Radio.Group>
+            </Form.Item>}
+            {showABN && showABNDetail && <><Form.Item
               label={t("abn-num")}
               name="abn"
               rules={[{required: true, message: 'Please input ABN'}]}
             >
               <div className="flex gap-5 items-center">
-                <Input className="w-1/2"/>
+                <Input className="w-1/2" />
                 <MainButton className="w-1/3" disabled={sent} onClick={handleClick}>{t('abn-validate')}</MainButton>
               </div>
             </Form.Item>
