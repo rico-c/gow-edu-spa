@@ -8,7 +8,7 @@ export const HeadingSection = ({
   const {t} = useTranslation("common");
 
   return (
-    <div className="md:flex w-5/6 md:w-1/2 p-10 m-10 gap-10">
+    <div className="md:flex w-5/6 md:w-1/3 py-10 m-10 gap-10">
       <div className="flex justify-center">
         <img src={img} width="130" />
       </div>

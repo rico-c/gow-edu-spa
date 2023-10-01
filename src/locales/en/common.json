@@ -81,7 +81,7 @@
   "subscribe-param": "Please input essential content",
   "subscribe-wechat": "Subscribe to our Official Wechat Account",
   "subscribe-format": "Please provide valid format email",
-  "partner-pdf": "Find more about the Gow Education",
+  "partner-pdf": "I have read and agree to Gow Education’s Partner",
   "parter-program": "Partner Program",
   "parter-interest": "Expression of Interest",
   "get-code": "Get Verification Code",
@@ -95,7 +95,8 @@
   "state": "State/Province",
   "affiliate": "Lead Affiliate No. (if applicable)",
   "residence": "Country of residence",
-  "abn-num": "Enter Your ABN",
+  "abn-num": "Entities registered in Australia need to have an ABN to be an eligible Gow Education Partner.Enter Your ABN",
   "abn-validate": "Validate",
+  "entity-name": "Entity Name (If applicable)",
   "mobile": "Mobile"
 }

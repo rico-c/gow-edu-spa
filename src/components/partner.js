@@ -44,7 +44,7 @@ const PartnerForm = ({onEnter}) => {
   }
 
   const handleFormChange = (data, allData) => {
-    const pass = allData.every(i => i.errors.length === 0 && i.touched);
+    const pass = allData.filter(i => i.name[0] !== 'entityname').every(i => i.errors.length === 0 && i.touched);
     if (pass) {
       setEnterEnable(true)
     } else {
@@ -96,6 +96,12 @@ const PartnerForm = ({onEnter}) => {
               label={t("partner-form-email")}
               name="email"
               rules={[{type: 'email', message: 'Please input correct email'}, {required: true, message: 'Please input your email'}]}
+            >
+              <Input placeholder={t("partner-form-email")} />
+            </Form.Item>
+            <Form.Item
+              label={t("entity-name")}
+              name="entityname"
             >
               <Input placeholder={t("partner-form-email")} />
             </Form.Item>

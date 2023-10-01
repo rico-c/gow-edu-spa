@@ -15,7 +15,7 @@ const sentWaitTime = 5 * 1000;
 
 const codes = uniq(Object.values(mobileCode).sort((a, b) => a - b))
 
-const PartnerDetail = ({onCancel, step1Data}) => {
+const PartnerDetail = ({onCancel, step1Data, agreeTerms}) => {
   const {t, i18n} = useTranslation("common");
   const [form] = Form.useForm();
   const [messageApi, contextHolder] = message.useMessage();
@@ -70,7 +70,7 @@ const PartnerDetail = ({onCancel, step1Data}) => {
         //   content: res.Message,
         //   duration: 3,
         // });
-        alert(res.Message)
+        alert('The ABN is unable to be verified.')
       }
       setAbn(res)
     })
@@ -88,7 +88,7 @@ const PartnerDetail = ({onCancel, step1Data}) => {
     }
     console.log(3, data, allData);
 
-    const pass = allData.every(i => i.errors.length === 0 && i.touched);
+    const pass = allData.filter(i => i.name[0] !== 'affiliate' && i.name[0] !== 'address2').every(i => i.errors.length === 0 && i.touched);
     if (pass) {
       setEnterEnable(true)
     } else {
@@ -97,9 +97,14 @@ const PartnerDetail = ({onCancel, step1Data}) => {
   }
 
   const handleSubmit = async (data) => {
-    console.log(11, data, abn);
+    console.log(11, data, abn, agreeTerms);
     if (data.residence === 'AU' && !abn.Abn) {
       alert('please Validate ABN firstly')
+      return
+    }
+
+    if(!agreeTerms) {
+      alert('please read and agree our terms and conditions firstly')
       return
     }
 
@@ -114,7 +119,7 @@ const PartnerDetail = ({onCancel, step1Data}) => {
       country_code: data.residence,
       country_name: '',
       abn: abn.Abn,
-      entity_name: abn.EntityName,
+      entity_name: abn.Abn? abn.EntityName : step1Data.entityname,
       entity_type: abn.EntityTypeName,
     }
 
@@ -152,7 +157,6 @@ const PartnerDetail = ({onCancel, step1Data}) => {
             <Form.Item
               label={t("address2")}
               name="address2"
-              rules={[{required: true}]}
             >
               <Input />
             </Form.Item>
@@ -160,7 +164,7 @@ const PartnerDetail = ({onCancel, step1Data}) => {
               label={t("state")}
               name="state"
               rules={[{required: true}]}
-              className="w-1/3"
+              className="w-full"
             >
               <Input />
             </Form.Item>
@@ -181,11 +185,10 @@ const PartnerDetail = ({onCancel, step1Data}) => {
             <Form.Item
               label={t("affiliate")}
               name="affiliate"
-              rules={[{required: true}]}
             >
               <Input className="w-1/3" />
             </Form.Item>
-            <Form.Item label={t('residence')} name="residence" className="w-1/3" rules={[{required: true}]}>
+            <Form.Item label={t('residence')} name="residence" className="" rules={[{required: true}]}>
               <Select
                 className="w-1/3"
                 virtual={false}
@@ -198,9 +201,9 @@ const PartnerDetail = ({onCancel, step1Data}) => {
               name="abn"
               rules={[{required: true, message: 'Please input ABN'}]}
             >
-              <div className="flex gap-5 items-baseline">
-                <Input className="w-1/3"/>
-                <MainButton disabled={sent} onClick={handleClick}>{t('abn-validate')}</MainButton>
+              <div className="flex gap-5 items-center">
+                <Input className="w-1/2"/>
+                <MainButton className="w-1/3" disabled={sent} onClick={handleClick}>{t('abn-validate')}</MainButton>
               </div>
             </Form.Item>
               {abn.Abn &&

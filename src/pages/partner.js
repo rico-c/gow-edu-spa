@@ -6,7 +6,7 @@ import PartnerDetail from "../components/partnerDetail";
 import {useTranslation} from "react-i18next";
 import {HeadingSection} from "../components/headingSection";
 import {RightOutlined} from "@ant-design/icons";
-import {Button} from "antd"
+import {Button, Checkbox} from "antd"
 import {useState} from "react";
 
 const Partner = () => {
@@ -14,6 +14,10 @@ const Partner = () => {
 
   const [step, setStep] = useState(1);
   const [step1Data, setStep1Data] = useState({});
+
+  const [agreeTerms, setAgreeTerms] = useState(false)
+
+  console.log(4, agreeTerms);
 
   return (
     <>
@@ -26,9 +30,12 @@ const Partner = () => {
         <div className="flex justify-center">
           <HeadingSection img={'/img/Icon--Leader Prep.png'} header={t('partner-title')} desc={t('oversea-desc')} />
         </div>
-        <div className="text-center pb-10 font-bold flex items-center justify-center flex-col md:flex-row">{t('partner-pdf')}<Button type="link" className="text-base font-bold flex items-center">{t("parter-program")}<RightOutlined /></Button></div>
+        <div className="text-center pb-10 px-10 font-bold md:flex-row">
+          <Checkbox className="mr-2" value={agreeTerms} onChange={val => {console.log(val); setAgreeTerms(val.target.checked)}}> {t('partner-pdf')}</Checkbox>
+          <Button type="link" className="text-base font-bold">{t("terms-conditions")}<RightOutlined /></Button>
+        </div>
         <div style={{background: 'rgb(246, 246, 246)'}}>
-          {step === 1 ? <PartnerForm onEnter={(data) => {setStep(2); setStep1Data(data)}} /> : <PartnerDetail step1Data={step1Data} onCancel={() => setStep(1)} />}</div>
+          {step === 1 ? <PartnerForm onEnter={(data) => {setStep(2); setStep1Data(data)}} /> : <PartnerDetail agreeTerms={agreeTerms} step1Data={step1Data} onCancel={() => setStep(1)} />}</div>
       </div>
       <Footer />
     </>
