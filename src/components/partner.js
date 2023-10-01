@@ -58,15 +58,19 @@ const PartnerForm = ({onEnter}) => {
   }
 
   const handleFinish = async (data) => {
-    const res = await doVerify({email_address: form.getFieldValue('email'), code: form.getFieldValue('verify-code')})
-    if(res.status === 'success'){
-      onEnter(data);
-    } else {
-      messageApi.open({
-        type: 'error',
-        content: 'Verification code is incorrect',
-        duration: 3,
-      });
+    try {
+      const res = await doVerify({email_address: form.getFieldValue('email'), code: form.getFieldValue('verify-code')})
+      if (res.status === 'success') {
+        onEnter(data);
+      } else {
+        messageApi.open({
+          type: 'error',
+          content: 'Verification code is incorrect',
+          duration: 3,
+        });
+      }
+    } catch (e) {
+      alert('The verification code is invalid or has expired. Please try again.')
     }
   }
 
