@@ -95,13 +95,16 @@ const PartnerDetail = ({onCancel, step1Data, agreeTerms}) => {
       setShowABNDetail(false)
     }
 
-    console.log(3, data, allData);
-
     const pass = allData.filter(i => i.name[0] !== 'affiliate' && i.name[0] !== 'address2').every(i => i.errors.length === 0 && i.touched);
     if (pass) {
       setEnterEnable(true)
     } else {
-      setEnterEnable(false)
+      if (allData.length === 10 && allData[8].value === 'no') {
+        setEnterEnable(true)
+      } else {
+        setEnterEnable(false)
+      }
+
     }
   }
 
@@ -179,7 +182,7 @@ const PartnerDetail = ({onCancel, step1Data, agreeTerms}) => {
               <Input />
             </Form.Item>
             <Form.Item
-              label={'postcode'}
+              label={t('postcode')}
               name="postcode"
               rules={[{required: true}]}
               className="w-full"
@@ -223,8 +226,9 @@ const PartnerDetail = ({onCancel, step1Data, agreeTerms}) => {
                 <Radio value={'no'}>No</Radio>
               </Radio.Group>
             </Form.Item>}
-            {showABN && showABNDetail && <><Form.Item
+            {showABN && showABNDetail && <div className="abn-form-item"><Form.Item
               label={t("abn-num")}
+
               name="abn"
               rules={[{required: true, message: 'Please input ABN'}]}
             >
@@ -239,7 +243,7 @@ const PartnerDetail = ({onCancel, step1Data, agreeTerms}) => {
                   <div>Entity Type: {abn.EntityTypeName}</div>
                 </div>
               }
-            </>}
+            </div>}
             <div className="flex gap-5 pt-5">
               <Button
                 size="large"

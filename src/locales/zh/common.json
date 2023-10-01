@@ -100,9 +100,10 @@
   "state": "State/Province",
   "affiliate": "Lead Affiliate No. (if applicable)",
   "residence": "Country of residence",
-  "abn-num": "Entities registered in Australia need to have an ABN to be an eligible Gow Education Partner.Enter Your ABN",
+  "abn-num": "Entities registered in Australia need to have an ABN to be an eligible Gow Education Partner. Enter Your ABN",
   "abn-validate": "Validate",
   "entity-name": "Entity Name (If applicable)",
   "abn-threshold": "Are you running a business or enterprise that has a GST turnover that exceeds the GST threshold of $75,000?",
+  "postcode": "Postcode",
   "mobile": "Mobile"
 }

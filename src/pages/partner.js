@@ -28,14 +28,28 @@ const Partner = () => {
           <img src="/img/course_advice.jpg" alt="university" className="w-full" />
         </div>
         <div className="flex justify-center">
-          <HeadingSection img={'/img/Icon--Leader Prep.png'} header={t('partner-title')} desc={t('oversea-desc')} />
+          <HeadingSection step={step} img={'/img/Icon--Leader Prep.png'} header={t('partner-title')} desc={t('oversea-desc')} />
         </div>
-        <div className="text-center pb-10 px-10 font-bold md:flex-row">
-          <Checkbox className="mr-2" value={agreeTerms} onChange={val => {console.log(val); setAgreeTerms(val.target.checked)}}> {t('partner-pdf')}</Checkbox>
-          <Button type="link" className="text-base font-bold">{t("terms-conditions")}<RightOutlined /></Button>
-        </div>
+        {
+          step === 1 && <>
+            <div className="text-center pb-10 px-10  md:flex-row flex items-center justify-center flex-wrap">
+              <Checkbox className="mr-2" value={agreeTerms} onChange={val => {setAgreeTerms(val.target.checked)}}> {t('partner-pdf')}<Button onClick={e => {
+                e.stopPropagation();
+                e.preventDefault();
+              }} type="link" className="align-middle">{t("terms-conditions")}<RightOutlined className="align-middle" /></Button></Checkbox>
+            </div>
+          </>
+        }
+
         <div style={{background: 'rgb(246, 246, 246)'}}>
-          {step === 1 ? <PartnerForm onEnter={(data) => {setStep(2); setStep1Data(data)}} /> : <PartnerDetail agreeTerms={agreeTerms} step1Data={step1Data} onCancel={() => setStep(1)} />}</div>
+          {step === 1 ? <PartnerForm onEnter={(data) => {
+            if (!agreeTerms) {
+              alert('please read and agree our terms and conditions firstly')
+              return;
+            }
+            setStep(2);
+            setStep1Data(data)
+          }} /> : <PartnerDetail agreeTerms={agreeTerms} step1Data={step1Data} onCancel={() => setStep(1)} />}</div>
       </div>
       <Footer />
     </>

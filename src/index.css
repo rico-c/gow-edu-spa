@@ -53,3 +53,16 @@ code {
 .rc-virtual-list-holder::-webkit-scrollbar {
   display: none; /* Chrome Safari */
 }
+.ant-checkbox {
+  align-self: self-start;
+  margin-top: 5px;
+}
+.abn-form-item .ant-form-item-required{
+  /* position: relative;
+  top: 0; */
+  align-items: flex-start !important;
+  /* transform: translateY(5px) !important; */
+}
+.abn-form-item .ant-form-item-required::before{
+  transform: translateY(5px) !important;
+}
