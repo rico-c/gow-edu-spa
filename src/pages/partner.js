@@ -49,6 +49,10 @@ const Partner = () => {
             }
             setStep(2);
             setStep1Data(data)
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
           }} /> : <PartnerDetail agreeTerms={agreeTerms} step1Data={step1Data} onCancel={() => setStep(1)} />}</div>
       </div>
       <Footer />
