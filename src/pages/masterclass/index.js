@@ -1,11 +1,20 @@
-import Footer from "../components/footer";
+import Footer from "../../components/footer";
 import {useState} from 'react'
-import Navbar from "../components/navbar";
-import {CourseCard} from "../components/courseCard";
+import Navbar from "../../components/navbar";
+import {CourseCard} from "../../components/courseCard";
 import {useTranslation} from "react-i18next";
-import {HeadingSection} from "../components/headingSection";
-
+import {HeadingSection} from "../../components/headingSection";
+import {Detail} from "./detail";
+import {Enrol} from "./enrol";
 import {TreeSelect} from 'antd';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams,
+  useRouteMatch
+} from "react-router-dom";
 
 const treeData = [
   {
@@ -60,10 +69,10 @@ const MasterClass = () => {
           <HeadingSection step={1} img={'/img/Icon-Performance Coaching@2x.png'} header={t('master')} desc={t('oversea-desc')} />
         </div>
         <div className="flex justify-center p-10">
-          <div className="w-5/6 md:w-1/3">
+          <div className="w-5/6 md:w-2/3">
             <TreeSelect
               showSearch
-              className="w-1/2 mb-10"
+              className="w-full mb-10"
               value={value}
               dropdownStyle={{maxHeight: 400, overflow: 'auto'}}
               placeholder="Search course categories"
@@ -72,7 +81,7 @@ const MasterClass = () => {
               onChange={onChange}
               treeData={treeData}
             />
-            <div className="flex justify-between gap-5">
+            <div className="flex justify-between gap-5 w-full">
               <CourseCard />
               <CourseCard />
               <CourseCard />
@@ -85,4 +94,16 @@ const MasterClass = () => {
   );
 };
 
-export default MasterClass;
+const MasterClassRouter = () => <Switch>
+  <Route path={`/masterclass/detail/:id`}>
+    <Detail />
+  </Route>
+  <Route path={`/masterclass/enrol/:id`}>
+    <Enrol />
+  </Route>
+  <Route>
+    <MasterClass />
+  </Route>
+</Switch>;;
+
+export default MasterClassRouter;
