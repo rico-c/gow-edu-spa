@@ -5,7 +5,7 @@ import {CourseCard} from "../../components/courseCard";
 import {useTranslation} from "react-i18next";
 import {HeadingSection} from "../../components/headingSection";
 import {Detail} from "./detail";
-import {Enrol} from "./enrol";
+import {Enroll} from "./enrol";
 import {TreeSelect} from 'antd';
 import {
   BrowserRouter as Router,
@@ -98,8 +98,8 @@ const MasterClassRouter = () => <Switch>
   <Route path={`/masterclass/detail/:id`}>
     <Detail />
   </Route>
-  <Route path={`/masterclass/enrol/:id`}>
-    <Enrol />
+  <Route path={`/masterclass/enroll/:id`}>
+    <Enroll />
   </Route>
   <Route>
     <MasterClass />

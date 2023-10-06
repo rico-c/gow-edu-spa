@@ -5,8 +5,8 @@ import {useHistory} from 'react-router-dom'
 export const CourseCard = () => {
   let history = useHistory();
 
-  const handleEnrol = () => {
-    history.push('/masterclass/enrol/1')
+  const handleEnroll = () => {
+    history.push('/masterclass/enroll/1')
   }
 
   const handleMore = () => {
@@ -43,7 +43,7 @@ export const CourseCard = () => {
       </div>
       <div className='flex justify-between'>
         <Button onClick={() => handleMore()}>Read More</Button>
-        <Button onClick={() => handleEnrol()}>Enrol Now</Button>
+        <Button onClick={() => handleEnroll()}>Enroll Now</Button>
       </div>
     </div>
   </div>
