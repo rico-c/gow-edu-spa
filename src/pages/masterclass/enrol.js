@@ -30,7 +30,7 @@ export const Enroll = () => {
         </div>
         <div className="flex justify-center">
           <div className="md:flex md:gap-10 w-5/6 md:w-1/2">
-            <div>
+            <div className="md:w-2/3">
               <div className="font-bold text-2xl my-5 main-color">Course Info</div>
               <div className="pb-5 flex justify-between">
                 <div>
@@ -59,7 +59,7 @@ export const Enroll = () => {
               </div>
             </div>
             <Form
-              className="md:flex-1 md:p-5"
+              className="md:flex-1 md:p-5 md:w-1/3"
               form={form}
               layout="vertical"
             >
@@ -77,9 +77,9 @@ export const Enroll = () => {
               >
                 <Input placeholder={t('contact-form-email')} />
               </Form.Item>
-              <div className="mb-5"><Captcha onVerify={(res) => console.log(222)} /></div>
+              {/* <div className="mb-5"><Captcha onVerify={(res) => console.log(222)} /></div> */}
               <Form.Item className="">
-                <Button size="large" style={{backgroundColor: '#F05523', color: '#fff'}} className="w-1/3" htmlType="submit">Go to Pay</Button>
+                <Button size="large" style={{backgroundColor: '#F05523', color: '#fff'}} className="w-1/3 md:w-full" htmlType="submit">Go to Pay</Button>
               </Form.Item>
             </Form>
           </div>
