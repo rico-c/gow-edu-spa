@@ -68,7 +68,7 @@ const MasterClass = () => {
         <div className="flex justify-center">
           <HeadingSection step={1} img={'/img/Icon-Performance Coaching@2x.png'} header={t('master')} desc={t('oversea-desc')} />
         </div>
-        <div className="flex justify-center p-10">
+        <div className="flex justify-center md:p-10 mb-5">
           <div className="w-5/6 md:w-2/3">
             <TreeSelect
               showSearch
@@ -81,7 +81,7 @@ const MasterClass = () => {
               onChange={onChange}
               treeData={treeData}
             />
-            <div className="flex justify-between gap-5 w-full">
+            <div className="flex flex-col md:flex-row md:justify-between gap-5 w-full">
               <CourseCard />
               <CourseCard />
               <CourseCard />

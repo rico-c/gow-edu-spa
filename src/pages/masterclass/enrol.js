@@ -29,22 +29,37 @@ export const Enroll = () => {
           <img src="/img/Masterclasses.jpg" alt="university" className="w-full" />
         </div>
         <div className="flex justify-center">
-          <div className="w-5/6 md:w-1/4">
-            <div className="font-bold text-2xl my-5 main-color">Course Info</div>
-            <div className="pb-5 flex justify-between">
-              <div>
-                <div className="font-bold">Course Name</div>
-                <div>Creative and Critcal Thinking</div>
-                <div className="font-bold">Tutor</div>
-                <div>Robert</div>
-                <div className="font-bold">Duration</div>
-                <div>1 hour</div>
-              </div>
-              <div>
-                <img src="/img/about_v2.png" className="rounded-full w-20"/>
+          <div className="md:flex md:gap-10 w-5/6 md:w-1/2">
+            <div>
+              <div className="font-bold text-2xl my-5 main-color">Course Info</div>
+              <div className="pb-5 flex justify-between">
+                <div>
+                  <div className="font-bold">Course Name</div>
+                  <div>Creative and Critcal Thinking</div>
+                  <div className="font-bold">Tutor</div>
+                  <div>Robert</div>
+                  <div className="font-bold">Duration</div>
+                  <div>1 hour</div>
+                  <div>
+                    <div className="font-bold">Price:</div>
+                    <div>$255</div>
+                  </div>
+                  <div>
+                    <div className="font-bold">Duration:</div>
+                    <div>1 hour</div>
+                  </div>
+                  <div>
+                    <div className="font-bold">Description:</div>
+                    <div>1 hour session1 on1 hoursession1 hour seson1 hoursession1 hour seson1 hoursession1 hour seson1 hoursession1 hour seson1 hoursession1 hour seson1 hoursession1 hour seson1 hoursession1 hour seson1 hoursession1 hour seson1 hoursession1 hour seson1 hoursession1 hour seson1 hoursession1 hour seson1 hoursession1 hour seson1 hoursession1 hour seson1 hoursession1 hour seson1 hoursession1 hour seson1 hoursession1 hour seson1 hoursession1 hour seshoursession1 hour session1 session1 hour session1 session1 hour session1 session1 hour session1 session1 hour session1 session1 hour session1 session1 hour session1  session1 hour session1 hour session1 hour session1 hour1 hour session1 hour session1 hour session1 hour session1 hour session1 hour1 hour session1 hour session1 hour session1 hour session1 hour session1 hour</div>
+                  </div>
+                </div>
+                {/* <div>
+                  <img src="/img/about_v2.png" className="rounded-full w-20" />
+                </div> */}
               </div>
             </div>
             <Form
+              className="md:flex-1 md:p-5"
               form={form}
               layout="vertical"
             >
