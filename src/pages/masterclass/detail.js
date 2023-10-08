@@ -13,7 +13,7 @@ import {
   useHistory
 } from "react-router-dom";
 import {Button} from "antd";
-import {InlineWidget} from "react-calendly";
+import {InlineWidget, PopupWidget, PopupButton} from "react-calendly";
 
 export const Detail = () => {
   const {t} = useTranslation("common");
@@ -58,10 +58,34 @@ export const Detail = () => {
               <div className="font-bold text-lg">Description:</div>
               <div>1 hour session1 hour session1 hour session1 hour session1 hour session1 hour session1 hour session</div>
             </div>
-            <di>
-              <div className="font-bold text-lg">Book my timeinline:</div>
+            <div>
+              <div className="font-bold text-lg">Book my time inline mode:</div>
               <InlineWidget url="https://calendly.com/ricardocao-biker" />
-            </di>
+            </div>
+            <div>
+              <div className="font-bold text-lg">Book my time popup mode:</div>
+              <PopupWidget
+                url="https://calendly.com/ricardocao-biker"
+                /*
+                 * react-calendly uses React's Portal feature (https://reactjs.org/docs/portals.html) to render the popup modal. As a result, you'll need to
+                 * specify the rootElement property to ensure that the modal is inserted into the correct domNode.
+                 */
+                rootElement={document.getElementById("root")}
+                text="Click here to schedule!"
+                textColor="#ffffff"
+                color="#00a2ff"
+              />
+              <PopupButton
+                className="border"
+                url="https://calendly.com/ricardocao-biker"
+                /*
+                 * react-calendly uses React's Portal feature (https://reactjs.org/docs/portals.html) to render the popup modal. As a result, you'll need to
+                 * specify the rootElement property to ensure that the modal is inserted into the correct domNode.
+                 */
+                rootElement={document.getElementById("root")}
+                text="Click here to schedule!"
+              />
+            </div>
             <div className='flex justify-between py-5'>
               <Button onClick={() => handleBack()}>Back</Button>
               <Button onClick={() => handleEnroll()}>Enroll Now</Button>
