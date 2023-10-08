@@ -13,6 +13,7 @@ import {
   useHistory
 } from "react-router-dom";
 import {Button} from "antd";
+import {InlineWidget} from "react-calendly";
 
 export const Detail = () => {
   const {t} = useTranslation("common");
@@ -57,6 +58,10 @@ export const Detail = () => {
               <div className="font-bold text-lg">Description:</div>
               <div>1 hour session1 hour session1 hour session1 hour session1 hour session1 hour session1 hour session</div>
             </div>
+            <di>
+              <div className="font-bold text-lg">Book my timeinline:</div>
+              <InlineWidget url="https://calendly.com/ricardocao-biker" />
+            </di>
             <div className='flex justify-between py-5'>
               <Button onClick={() => handleBack()}>Back</Button>
               <Button onClick={() => handleEnroll()}>Enroll Now</Button>
