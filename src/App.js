@@ -13,6 +13,7 @@ import PhdReady from "./pages/phdready";
 import MasterClass from "./pages/masterclass";
 import StudyOversea from "./pages/studyoversea/index";
 import {WechatFloat} from "./components/wechatfloat";
+import {Login} from "./pages/login";
 function App() {
   return (
     <div className="App">
@@ -50,6 +51,9 @@ function App() {
           </Route>
           <Route path="/studyoversea">
             <StudyOversea />
+          </Route>
+          <Route path="/login">
+            <Login />
           </Route>
         </Switch>
       </Router>
