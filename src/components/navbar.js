@@ -10,6 +10,8 @@ import {
   useLocation,
   useParams
 } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
+
 
 const Navbar = () => {
   const {t, i18n} = useTranslation("common");
@@ -17,6 +19,7 @@ const Navbar = () => {
 
   let location = useLocation();
   let params = useParams();
+  const { loginWithRedirect } = useAuth0();
 
   const navigation = [
     {
@@ -160,6 +163,7 @@ const Navbar = () => {
             <IconButton onClick={changeLang} className="text-gray-500  ">
               <TranslateIcon />
             </IconButton>
+            <button onClick={() => loginWithRedirect()}>Login</button>
           </div>
         </div>
       </nav>
