@@ -16,6 +16,11 @@ import {Button, Form, Input, Spin} from "antd";
 import Captcha from '../../components/captcha'
 import {fetchCourseInfo} from '../../api/masterclass'
 import {MainButton} from '../../components/button'
+import {
+  GlobalOutlined,
+  FileTextOutlined,
+  UserOutlined
+} from '@ant-design/icons';
 
 export const Enroll = () => {
   const {t} = useTranslation("common");
@@ -44,15 +49,15 @@ export const Enroll = () => {
         info.course_name &&
         <div>
           <div className="md:flex justify-center ">
-            <img src={info.img_url} alt="university" className=" md:gap-10 w-5/6 md:w-1/2 rounded-2xl overflow-hidden" />
+            <img src={info.img_url} alt="university" className=" md:gap-10 w-5/6 md:w-3/4 rounded-2xl overflow-hidden" />
           </div>
           <div className="flex justify-center">
-            <div className="md:flex md:gap-10 w-5/6 md:w-1/2">
-              <div className="md:w-2/3">
+            <div className="md:flex md:gap-5 w-5/6 md:w-3/4">
+              <div className="md:w-2/3 md:pr-5">
                 <div className="pb-5 flex justify-between">
                   <div>
                     <div className="font-bold text-2xl my-5 ">{info.course_name}</div>
-                    <div className="flex gap-5 border-b py-5 ">
+                    <div className="gap-5 border-b pb-5">
                       <div>
                         <img src="/img/about_v2.png" className="rounded-full w-20" />
                       </div>
@@ -62,21 +67,25 @@ export const Enroll = () => {
                       </div>
                     </div>
                     <div className="border-b py-5">
-                      <div className="font-bold text-lg">Language:</div>
+                      <div className="font-bold text-lg flex items-center gap-2"><GlobalOutlined />Language:</div>
                       <div className="text-gray-700">{info.lang_info}</div>
                     </div>
-                    <div className="border-b py-5">
+                    {/* <div className="border-b py-5">
                       <div className="font-bold text-lg">Duration:</div>
                       <div className="text-gray-700">{info.time_info}</div>
-                    </div>
+                    </div> */}
                     <div className="border-b py-5">
-                      <div className="font-bold text-lg">Description:</div>
+                      <div className="font-bold text-lg flex items-center gap-2"><FileTextOutlined />Description:</div>
                       <div className="text-gray-700" dangerouslySetInnerHTML={{__html: info.long_info}}></div>
                     </div>
                     <div className="border-b py-5">
+                      <div className="font-bold text-lg flex items-center gap-2"><UserOutlined />Profile of Presenter:</div>
+                      <div className="text-gray-700" dangerouslySetInnerHTML={{__html: info.long_info}}></div>
+                    </div>
+                    {/* <div className="border-b py-5">
                       <div className="font-bold text-lg">Price:</div>
                       <div className="text-gray-700" >{info.price_info}</div>
-                    </div>
+                    </div> */}
                   </div>
                   {/* <div>
                   <img src="/img/about_v2.png" className="rounded-full w-20" />
@@ -85,7 +94,7 @@ export const Enroll = () => {
               </div>
               <div className="md:flex-1 md:w-1/3 mt-10">
                 <Form
-                  className="md:p-5 border rounded-lg"
+                  className="md:p-5 md:border rounded-lg"
                   form={form}
                   layout="vertical"
                 >
@@ -104,8 +113,9 @@ export const Enroll = () => {
                     <Input placeholder={t('contact-form-email')} />
                   </Form.Item>
                   {/* <div className="mb-5"><Captcha onVerify={(res) => console.log(222)} /></div> */}
+                  <div className="flex justify-end mb-5 font-bold">{info.price_info}</div>
                   <Form.Item className="">
-                    <MainButton size="large" className="w-1/3 md:w-full" htmlType="submit">Go to Pay</MainButton>
+                    <MainButton size="large" className="w-full" htmlType="submit">Enrol now</MainButton>
                   </Form.Item>
                 </Form>
               </div>

@@ -16,7 +16,7 @@ import {
   Route,
 } from "react-router-dom";
 import {fetchCourses} from '../../api/masterclass'
-
+import {BlockSection} from '../../components/blockSection.js';
 
 const MasterClass = () => {
   const {t} = useTranslation("common");
@@ -70,11 +70,11 @@ const MasterClass = () => {
         <div>
           <img src="/img/Masterclasses.jpg" alt="university" className="w-full" />
         </div>
-        <div className="flex justify-center">
-          <HeadingSection step={1} img={'/img/Icon-Performance Coaching@2x.png'} header={t('master')} desc={t('oversea-desc')} />
+        <div className="flex justify-center md:px-10 pt-5">
+          <BlockSection img={'/img/Icon-Turnitin Feedback.png'} header={t('master')} desc={t('oversea-desc')} />
         </div>
         <div className="flex justify-center md:p-10 mb-5">
-          <div className="w-5/6 md:w-2/3">
+          <div className="w-5/6 md:w-3/4">
             <div className="md:flex justify-center mb-10 items-center">
               <div>Select Program: &nbsp;&nbsp;</div>
               <Select

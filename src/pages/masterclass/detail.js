@@ -51,10 +51,10 @@ export const Detail = () => {
       {
         info.course_name && <div>
           <div className="md:flex justify-center ">
-            <img src={info.img_url} alt="university" className=" md:gap-10 w-5/6 md:w-1/2 rounded-2xl overflow-hidden" />
+            <img src={info.img_url} alt="university" className=" md:gap-10 w-5/6 md:w-3/4 rounded-2xl overflow-hidden" />
           </div>
           <div className="flex justify-center">
-            <div className="w-5/6 md:w-1/2">
+            <div className="w-5/6 md:w-3/4">
               <div className="font-bold text-2xl my-5 ">{info.course_name}</div>
               <div className="flex gap-5 border-b py-5">
                 <div>
