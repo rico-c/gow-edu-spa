@@ -197,7 +197,6 @@ const University = () => {
           </div>
         </div>
       </div>
-      <Footer />
       <Modal {...mobile.any ? {style: {top: 0, margin: 0, maxWidth: '100%', height: '100%'}} : { }} footer={null} open={isModalOpen} onCancel={() => {setOpen(false)}}>
       <div className="pt-7"><StudyForm /></div>
     </Modal >

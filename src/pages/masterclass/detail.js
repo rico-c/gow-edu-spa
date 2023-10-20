@@ -98,7 +98,6 @@ export const Detail = () => {
           </div>
         </div>
       }
-      <Footer />
     </>
   );
 };

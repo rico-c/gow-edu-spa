@@ -123,7 +123,6 @@ export const Enroll = () => {
           </div>
         </div>
       }
-      <Footer />
     </>
   );
 };

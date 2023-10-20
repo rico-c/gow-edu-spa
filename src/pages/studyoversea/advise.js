@@ -22,7 +22,6 @@ const Advise = () => {
           wip
         </div>
       </div>
-      <Footer />
     </>
   );
 };

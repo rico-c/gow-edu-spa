@@ -20,7 +20,6 @@ const PhdPre = () => {
           wip
         </div>
       </div>
-      <Footer />
     </>
   );
 };

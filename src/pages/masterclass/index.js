@@ -102,21 +102,25 @@ const MasterClass = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };
 
-const MasterClassRouter = () => <Switch>
-  <Route path={`/masterclass/detail/:id`}>
-    <Detail />
-  </Route>
-  <Route path={`/masterclass/enroll/:id`}>
-    <Enroll />
-  </Route>
-  <Route>
-    <MasterClass />
-  </Route>
-</Switch>;;
+const MasterClassRouter = () => <div className="flex flex-col min-h-screen">
+  <div className="flex-1">
+    <Switch >
+      <Route path={`/masterclass/detail/:id`}>
+        <Detail />
+      </Route>
+      <Route path={`/masterclass/enroll/:id`}>
+        <Enroll />
+      </Route>
+      <Route>
+        <MasterClass />
+      </Route>
+    </Switch>
+  </div>
+  <Footer />
+</div>
 
 export default MasterClassRouter;

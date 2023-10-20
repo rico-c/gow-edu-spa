@@ -30,7 +30,7 @@ const StudyOversea = () => {
           <HeadingSection img={'/img/Icon--Leader Prep.png'} header={t('oversea')} desc={t('oversea-desc')} />
         </div>
         <div className="flex justify-center pb-10" style={{backgroundColor: 'rgb(246, 246, 246)'}}>
-          <div className="block md:flex md:w-1/2">
+          <div className="block md:flex md:w-3/4">
             <div className="md:w-3/4">
               <div className="pl-10 md:pl-0 pr-10" >
                 <LessonItem
@@ -70,33 +70,36 @@ const StudyOversea = () => {
               </div>
             </div>
             <div className="px-10 md:px-0 md:w-1/4 mt-10" style={{minWidth: '300px'}}>
-              <StudyForm shadow/>
+              <StudyForm shadow />
             </div>
-
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };
 
-const StudyOverseaRouter = () => <Switch>
-  <Route path={`/studyoversea/phdpre`}>
-    <PhdPre />
-  </Route>
-  <Route path={`/studyoversea/advise`}>
-    <Advise />
-  </Route>
-  <Route path={`/studyoversea/university`}>
-    <University />
-  </Route>
-  <Route path={`/studyoversea/detail/:name/:year`}>
-    <Detail />
-  </Route>
-  <Route>
-    <StudyOversea />
-  </Route>
-</Switch>;
+const StudyOverseaRouter = () => <div className="flex flex-col min-h-screen">
+  <div className="flex-1">
+    <Switch>
+      <Route path={`/studyoversea/phdpre`}>
+        <PhdPre />
+      </Route>
+      <Route path={`/studyoversea/advise`}>
+        <Advise />
+      </Route>
+      <Route path={`/studyoversea/university`}>
+        <University />
+      </Route>
+      <Route path={`/studyoversea/detail/:name/:year`}>
+        <Detail />
+      </Route>
+      <Route>
+        <StudyOversea />
+      </Route>
+    </Switch>
+  </div>
+  <Footer />
+</div>
 
 export default StudyOverseaRouter;
