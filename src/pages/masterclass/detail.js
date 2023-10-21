@@ -31,7 +31,7 @@ export const Detail = () => {
   let history = useHistory();
 
   const handleEnroll = () => {
-    history.push('/masterclass/enroll/1')
+    history.push('/masterclass/enroll/' + id)
   }
 
   const handleBack = () => {
@@ -71,7 +71,7 @@ export const Detail = () => {
                 </div>
               </div>
               <div className="border-b py-5">
-                <div className="font-bold text-lg flex items-center gap-2"><GlobalOutlined/>Language:</div>
+                <div className="font-bold text-lg flex items-center gap-2"><GlobalOutlined />Language:</div>
                 <div className="text-gray-700">{info.lang_info}</div>
               </div>
               {/* <div className="border-b py-5">
