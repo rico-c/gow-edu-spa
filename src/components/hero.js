@@ -9,6 +9,7 @@ const labelStyle = {
   backgroundColor: "rgba(0, 0, 0, 0.4)",
   padding: "0.5rem 3rem",
   transform: "translate(-50%, -50%)",
+  borderRadius: "0.5rem",
 };
 
 const Hero = () => {
@@ -16,10 +17,10 @@ const Hero = () => {
   const locale = i18n.language;
   return (
     <>
-      <Carousel effect="fade" autoplay autoplaySpeed={4000} swipeToSlide draggable className="w-full" style={{minHeight: "calc(100vw * 0.36)"}}>
-        <div className="relative">
+      <Carousel effect="fade" autoplay autoplaySpeed={4000} swipeToSlide draggable className="" style={{minHeight: "calc(100vw * 0.30)"}}>
+        <div className="flex-force w-full md:w-5/6 justify-center">
           <div
-            className="absolute top-1/2 left-1/2 text-xl text-white md:text-4xl lg:text-8xl"
+            className="absolute top-1/2 left-1/2 text-xl text-white md:text-4xl lg:text-8xl PlaypenSans"
             style={labelStyle}
           >
             {t("learn")}
@@ -27,12 +28,12 @@ const Hero = () => {
           <img
             src={"/banner/home_banner1.png"}
             alt="Hero Illustration"
-            className="w-full"
+            className="w-full md:w-5/6 rounded-lg"
           />
         </div>
-        <div className="relative">
+        <div className="flex-force w-full md:w-5/6 justify-center">
           <div
-            className="absolute top-1/2 left-1/2 text-xl text-white md:text-4xl lg:text-8xl"
+            className="absolute top-1/2 left-1/2 text-xl text-white md:text-4xl lg:text-8xl PlaypenSans"
             style={labelStyle}
           >
             {t("grow")}
@@ -40,12 +41,12 @@ const Hero = () => {
           <img
             src={"/banner/home_banner2.png"}
             alt="Hero Illustration"
-            className="w-full"
+            className="w-full md:w-5/6 rounded-lg"
           />
         </div>
-        <div className="relative">
+        <div className="flex-force w-full md:w-5/6 justify-center">
           <div
-            className="absolute top-1/2 left-1/2 text-xl text-white md:text-4xl lg:text-8xl"
+            className="absolute top-1/2 left-1/2 text-xl text-white md:text-4xl lg:text-8xl PlaypenSans"
             style={labelStyle}
           >
             {t("excel")}
@@ -53,7 +54,7 @@ const Hero = () => {
           <img
             src={"/banner/home_banner3.png"}
             alt="Hero Illustration"
-            className="w-full"
+            className="w-full md:w-5/6 rounded-lg"
           />
         </div>
       </Carousel>

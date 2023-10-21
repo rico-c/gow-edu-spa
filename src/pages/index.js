@@ -31,9 +31,9 @@ const Home = () => {
         title={t('slogan3')}>
         {t('value-desc')}
       </SectionTitle>
-      <div className="flex justify-center relative">
-        <img className="" src={'/img/welcome.png'} fill="true" alt={'welcome'} />
-        <div className="absolute text-white top-1/2 text-2xl md:text-5xl lg:text-8xl" style={{transform: "translateY(-50%)"}}>{t('logo')}</div>
+      <div className="flex justify-center relative pb-5">
+        <img className="rounded-lg" src={'/img/welcome.png'} fill="true" alt={'welcome'} />
+        <div className="absolute text-white top-1/2 text-2xl md:text-5xl lg:text-8xl shadow-lg" style={{transform: "translateY(-50%)"}}>{t('logo')}</div>
       </div>
       <Lesson />
       <Feedback />

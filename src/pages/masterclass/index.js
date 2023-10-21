@@ -67,8 +67,8 @@ const MasterClass = () => {
     <>
       <Navbar />
       <div>
-        <div>
-          <img src="/img/Masterclasses.jpg" alt="university" className="w-full" />
+        <div className="w-full flex justify-center">
+          <img src="/img/Masterclasses.jpg" alt="university" className="w-full md:w-3/4 block rounded-lg" />
         </div>
         <div className="flex justify-center md:px-10 pt-5">
           <BlockSection img={'/img/Icon-Turnitin Feedback.png'} header={t('master')} desc={t('oversea-desc')} />

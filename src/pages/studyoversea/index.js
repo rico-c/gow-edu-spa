@@ -23,8 +23,8 @@ const StudyOversea = () => {
     <>
       <Navbar />
       <div className="" >
-        <div>
-          <img src={'/img/Study_overseas.jpg'} className="w-full" />
+        <div className="w-full flex justify-center">
+          <img src={'/img/Study_overseas.jpg'} className="w-full md:w-3/4 block rounded-lg" />
         </div>
         <div className="flex justify-center">
           <HeadingSection img={'/img/Icon--Leader Prep.png'} header={t('oversea')} desc={t('oversea-desc')} />
