@@ -24,15 +24,15 @@ export const CourseCard = ({courseInfo}) => {
 
   let history = useHistory();
 
-  const handleEnroll = () => {
-    history.push(`/masterclass/enroll/${uid}`)
+  const handleEnrol = () => {
+    history.push(`/masterclass/enrol/${uid}`)
   }
 
   const handleMore = () => {
-    history.push(`/masterclass/detail/${uid}`)
+    history.push(`/masterclass/enrol/${uid}`)
   }
 
-  return <div className='shadow rounded-lg flex flex-col justify-between overflow-hidden w-full md:w-1/4'>
+  return <div className='shadow rounded-lg flex flex-col justify-between overflow-hidden w-full md:w-[calc(33%-1.25rem)] mb-5'>
     <div className=''>
       <div>
         <img src={img_url} />
@@ -56,11 +56,11 @@ export const CourseCard = ({courseInfo}) => {
           </div>
         </div>
         <div className="border-b py-2">
-          <div className="font-bold text-lg flex items-center gap-2"><GlobalOutlined style={{ fontSize: '16px' }} />Language:</div>
+          <div className="font-bold text-lg flex items-center gap-2"><GlobalOutlined style={{fontSize: '16px'}} />Language:</div>
           <div className="text-gray-700">{lang_info}</div>
         </div>
         <div className="border-b py-2">
-          <div className="font-bold text-lg flex items-center gap-2"><FileTextOutlined style={{ fontSize: '16px' }} />Description:</div>
+          <div className="font-bold text-lg flex items-center gap-2"><FileTextOutlined style={{fontSize: '16px'}} />Description:</div>
           <div className="text-gray-700" dangerouslySetInnerHTML={{__html: short_info}}></div>
         </div>
       </div>
@@ -72,7 +72,7 @@ export const CourseCard = ({courseInfo}) => {
       </div>
       <div className='flex justify-between'>
         <Button onClick={() => handleMore()}>Read More</Button>
-        <MainButton onClick={() => handleEnroll()}>Enroll Now</MainButton>
+        <MainButton onClick={() => handleEnrol()}>Enrol Now</MainButton>
       </div>
     </div>
 

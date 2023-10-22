@@ -5,7 +5,7 @@ import {CourseCard} from "../../components/courseCard";
 import {useTranslation} from "react-i18next";
 import {HeadingSection} from "../../components/headingSection";
 import {Detail} from "./detail";
-import {Enroll} from "./enrol";
+import {Enrol} from "./enrol";
 import {Select} from 'antd';
 import {
   LoadingOutlined,
@@ -68,13 +68,13 @@ const MasterClass = () => {
       <Navbar />
       <div>
         <div className="w-full flex justify-center">
-          <img src="/img/Masterclasses.jpg" alt="university" className="w-full md:w-3/4 block rounded-lg" />
+          <img src="/img/Masterclasses.jpg" alt="university" className="w-full md:max-w-screen-2xl block rounded-lg" />
         </div>
         <div className="flex justify-center md:px-10 pt-5">
           <BlockSection img={'/img/Icon-Turnitin Feedback.png'} header={t('master')} desc={t('oversea-desc')} />
         </div>
         <div className="flex justify-center md:p-10 mb-5">
-          <div className="w-5/6 md:w-3/4">
+          <div className="w-5/6 md:max-w-screen-2xl">
             <div className="md:flex justify-center mb-10 items-center">
               <div>Select Program: &nbsp;&nbsp;</div>
               <Select
@@ -94,7 +94,7 @@ const MasterClass = () => {
                 </span>
               </div> : null
             }
-            <div className="flex flex-col md:flex-row md:justify-center gap-5 w-full">
+            <div className="flex flex-col md:flex-row w-full flex-wrap gap-5">
               {
                 currentList.map(courseInfo => <CourseCard courseInfo={courseInfo} />)
               }
@@ -112,8 +112,8 @@ const MasterClassRouter = () => <div className="flex flex-col min-h-screen">
       <Route path={`/masterclass/detail/:id`}>
         <Detail />
       </Route>
-      <Route path={`/masterclass/enroll/:id`}>
-        <Enroll />
+      <Route path={`/masterclass/enrol/:id`}>
+        <Enrol />
       </Route>
       <Route>
         <MasterClass />

@@ -116,8 +116,8 @@ const University = () => {
 
       <Navbar />
       <div>
-        <div>
-          <img src="/img/Find_my_university.jpg" alt="university" className="w-full" />
+        <div className="flex justify-center">
+          <img src="/img/Find_my_university.jpg" alt="university" className="max-w-screen-2xl rounded-lg" />
         </div>
         <div className="flex justify-center py-10">
           <div className="px-5 md:px-0 w-full md:w-3/5 ">
@@ -169,7 +169,7 @@ const University = () => {
               />
             </div>
             <div>
-              <img className="pt-5 w-full" src={info.country_image_url} alt="university" />
+              <img className="rounded-lg pt-5 w-full" src={info.country_image_url} alt="university" />
             </div>
             <div className="text-xl font-bold py-5">
               {t("partner")} - <span className="main-color">{info.country_name}</span>

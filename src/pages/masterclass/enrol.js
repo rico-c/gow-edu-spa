@@ -22,7 +22,7 @@ import {
   UserOutlined
 } from '@ant-design/icons';
 
-export const Enroll = () => {
+export const Enrol = () => {
   const {t} = useTranslation("common");
   let history = useHistory();
   const {id} = useParams();
@@ -49,15 +49,15 @@ export const Enroll = () => {
         info.course_name &&
         <div>
           <div className="md:flex justify-center ">
-            <img src={info.img_url} alt="university" className=" md:gap-10 w-5/6 md:w-3/4 rounded-2xl overflow-hidden" />
+            <img src={info.img_url} alt="university" className=" md:gap-10 w-5/6 md:max-w-screen-2xl rounded-2xl overflow-hidden" />
           </div>
           <div className="flex justify-center">
-            <div className="md:flex md:gap-5 w-5/6 md:w-3/4">
+            <div className="md:flex md:gap-5 w-5/6 md:max-w-screen-2xl">
               <div className="md:w-2/3 md:pr-5">
                 <div className="pb-5 flex justify-between">
                   <div>
                     <div className="font-bold text-2xl my-5 ">{info.course_name}</div>
-                    <div className="gap-5 border-b pb-5">
+                    <div className="gap-5 border-b pb-5 flex">
                       <div>
                         <img src="/img/about_v2.png" className="rounded-full w-20" />
                       </div>
@@ -99,8 +99,15 @@ export const Enroll = () => {
                   layout="vertical"
                 >
                   <Form.Item
-                    label={t('contact-form-name')}
-                    name="name"
+                    label={'First Name'}
+                    name="first-name"
+                    rules={[{required: true}]}
+                  >
+                    <Input placeholder={t('contact-form-name')} />
+                  </Form.Item>
+                  <Form.Item
+                    label={'Last Name'}
+                    name="last-name"
                     rules={[{required: true}]}
                   >
                     <Input placeholder={t('contact-form-name')} />

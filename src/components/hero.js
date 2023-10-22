@@ -17,8 +17,8 @@ const Hero = () => {
   const locale = i18n.language;
   return (
     <>
-      <Carousel effect="fade" autoplay autoplaySpeed={4000} swipeToSlide draggable className="" style={{minHeight: "calc(100vw * 0.30)"}}>
-        <div className="flex-force w-full md:w-5/6 justify-center">
+      <Carousel effect="fade" autoplay autoplaySpeed={4000} swipeToSlide draggable className="" style={{minHeight: "calc(100vw * 0.20)"}}>
+        <div className="flex-force w-full flex justify-center">
           <div
             className="absolute top-1/2 left-1/2 text-xl text-white md:text-4xl lg:text-8xl PlaypenSans"
             style={labelStyle}
@@ -28,10 +28,10 @@ const Hero = () => {
           <img
             src={"/banner/home_banner1.png"}
             alt="Hero Illustration"
-            className="w-full md:w-5/6 rounded-lg"
+            className="md:max-w-screen-2xl rounded-lg"
           />
         </div>
-        <div className="flex-force w-full md:w-5/6 justify-center">
+        <div className="flex-force w-full flex justify-center">
           <div
             className="absolute top-1/2 left-1/2 text-xl text-white md:text-4xl lg:text-8xl PlaypenSans"
             style={labelStyle}
@@ -41,10 +41,10 @@ const Hero = () => {
           <img
             src={"/banner/home_banner2.png"}
             alt="Hero Illustration"
-            className="w-full md:w-5/6 rounded-lg"
+            className="md:max-w-screen-2xl rounded-lg"
           />
         </div>
-        <div className="flex-force w-full md:w-5/6 justify-center">
+        <div className="flex-force w-full flex justify-center">
           <div
             className="absolute top-1/2 left-1/2 text-xl text-white md:text-4xl lg:text-8xl PlaypenSans"
             style={labelStyle}
@@ -54,7 +54,7 @@ const Hero = () => {
           <img
             src={"/banner/home_banner3.png"}
             alt="Hero Illustration"
-            className="w-full md:w-5/6 rounded-lg"
+            className="md:max-w-screen-2xl rounded-lg"
           />
         </div>
       </Carousel>

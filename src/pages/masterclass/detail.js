@@ -30,8 +30,8 @@ export const Detail = () => {
   console.log(1, id);
   let history = useHistory();
 
-  const handleEnroll = () => {
-    history.push('/masterclass/enroll/' + id)
+  const handleEnrol = () => {
+    history.push('/masterclass/enrol/' + id)
   }
 
   const handleBack = () => {
@@ -92,7 +92,7 @@ export const Detail = () => {
             </div> */}
               <div className='flex justify-between py-5'>
                 <Button onClick={() => handleBack()}>Back</Button>
-                <MainButton onClick={() => handleEnroll()}>Enroll Now</MainButton>
+                <MainButton onClick={() => handleEnrol()}>Enrol Now</MainButton>
               </div>
             </div>
           </div>

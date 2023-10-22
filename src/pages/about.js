@@ -12,7 +12,7 @@ const About = () => {
        
       <Navbar />
       <div className="flex w-full justify-center p-10">
-        <div className="w-full md:w-3/4 flex">
+        <div className="w-full md:max-w-screen-2xl flex">
           <div className="pr-0 md:pr-10">
             <div>
               <div style={{color: '#f05622'}} className="font-bold text-3xl pb-5">{t("about-us")}</div>
