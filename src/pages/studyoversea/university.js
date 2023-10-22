@@ -9,6 +9,7 @@ import {useEffect, useState} from "react";
 import isMobile from 'ismobilejs';
 import {MainButton} from '../../components/button'
 import {StudyForm} from "../../components/studyform";
+import {HeadingSection} from "../../components/headingSection";
 
 const University = () => {
   const {t} = useTranslation("university");
@@ -117,17 +118,11 @@ const University = () => {
       <Navbar />
       <div>
         <div className="flex justify-center">
-          <img src="/img/Find_my_university.jpg" alt="university" className="max-w-screen-2xl rounded-lg" />
+          <img src="/img/Find_my_university.jpg" alt="university" className="max-w-screen-xl rounded-lg" />
         </div>
-        <div className="flex justify-center py-10">
-          <div className="px-5 md:px-0 w-full md:w-3/5 ">
-            <div className="main-color text-3xl font-bold pb-5">
-              {t("title")}
-            </div>
-            <div className="flex items-center gap-5 pb-5 text-lg">
-              <img className="hidden md:block" src="/img/icon_icon_Get connected.png" width="130px" />
-              {t("desc")}
-            </div>
+        <div className="flex justify-center pb-10">
+          <div className="px-5 md:px-0 w-full md:w-1/2 ">
+            <HeadingSection fullWidth img="/img/icon_icon_Get connected.png" header={t('title')} desc={t('desc')} />
             <div className="flex justify-center pb-5">
               <img src="/img/theWord.png" width="250px" />
             </div>
@@ -197,9 +192,9 @@ const University = () => {
           </div>
         </div>
       </div>
-      <Modal {...mobile.any ? {style: {top: 0, margin: 0, maxWidth: '100%', height: '100%'}} : { }} footer={null} open={isModalOpen} onCancel={() => {setOpen(false)}}>
-      <div className="pt-7"><StudyForm /></div>
-    </Modal >
+      <Modal {...mobile.any ? {style: {top: 0, margin: 0, maxWidth: '100%', height: '100%'}} : {}} footer={null} open={isModalOpen} onCancel={() => {setOpen(false)}}>
+        <div className="pt-7"><StudyForm /></div>
+      </Modal >
     </>
   );
 };

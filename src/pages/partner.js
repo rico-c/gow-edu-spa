@@ -25,7 +25,7 @@ const Partner = () => {
       <Navbar />
       <div>
         <div className="w-full flex justify-center">
-          <img src="/img/course_advice.jpg" alt="university" className="w-full md:max-w-screen-2xl block rounded-lg" />
+          <img src="/img/course_advice.jpg" alt="university" className="w-full md:max-w-screen-xl block rounded-lg" />
         </div>
         <div className="flex justify-center">
           <HeadingSection step={step} img={'/img/Icon--Leader Prep.png'} header={t('partner-title')} desc={t('oversea-desc')} />

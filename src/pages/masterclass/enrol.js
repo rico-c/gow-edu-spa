@@ -49,10 +49,10 @@ export const Enrol = () => {
         info.course_name &&
         <div>
           <div className="md:flex justify-center ">
-            <img src={info.img_url} alt="university" className=" md:gap-10 w-5/6 md:max-w-screen-2xl rounded-2xl overflow-hidden" />
+            <img src={info.img_url} alt="university" className=" md:gap-10 w-5/6 md:max-w-screen-xl rounded-2xl overflow-hidden" />
           </div>
           <div className="flex justify-center">
-            <div className="md:flex md:gap-5 w-5/6 md:max-w-screen-2xl">
+            <div className="md:flex md:gap-5 w-5/6 md:max-w-screen-xl">
               <div className="md:w-2/3 md:pr-5">
                 <div className="pb-5 flex justify-between">
                   <div>

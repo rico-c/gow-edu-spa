@@ -28,7 +28,7 @@ const Hero = () => {
           <img
             src={"/banner/home_banner1.png"}
             alt="Hero Illustration"
-            className="md:max-w-screen-2xl rounded-lg"
+            className="md:max-w-screen-xl rounded-lg"
           />
         </div>
         <div className="flex-force w-full flex justify-center">
@@ -41,7 +41,7 @@ const Hero = () => {
           <img
             src={"/banner/home_banner2.png"}
             alt="Hero Illustration"
-            className="md:max-w-screen-2xl rounded-lg"
+            className="md:max-w-screen-xl rounded-lg"
           />
         </div>
         <div className="flex-force w-full flex justify-center">
@@ -54,7 +54,7 @@ const Hero = () => {
           <img
             src={"/banner/home_banner3.png"}
             alt="Hero Illustration"
-            className="md:max-w-screen-2xl rounded-lg"
+            className="md:max-w-screen-xl rounded-lg"
           />
         </div>
       </Carousel>
