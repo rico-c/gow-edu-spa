@@ -35,7 +35,7 @@ const StudyOversea = () => {
             <div className="md:max-w-screen-xl">
               <div className="pl-10 md:pl-0 pr-10" >
                 <LessonItem
-                  icon={"/icon/Icon-Turnitin Feedback@2x.png"}
+                  icon={"/icon/icon_Live Masterclass.png"}
                   title={t("course-advise")}
                   desc={t("lesson-desc1")}
                   link="/studyoversea/advise"

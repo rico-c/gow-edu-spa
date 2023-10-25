@@ -28,7 +28,7 @@ const Partner = () => {
           <img src="/img/course_advice.jpg" alt="university" className="w-full md:max-w-screen-xl block rounded-lg" />
         </div>
         <div className="flex justify-center">
-          <HeadingSection step={step} img={'/img/Icon--Leader Prep.png'} header={t('partner-title')} desc={t('oversea-desc')} />
+          <HeadingSection step={step} img={'/img/WechatIMG1663.png'} header={t('partner-title')} desc={t('oversea-desc')} />
         </div>
         {
           step === 1 && <>
