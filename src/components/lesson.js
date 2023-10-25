@@ -7,7 +7,7 @@ import {Button} from "antd";
 export const LessonItem = ({icon, title, desc, link, isCol}) => {
   const {t} = useTranslation("common");
   return (
-    <div className="flex justify-center mt-10">
+    <div className="flex justify-center mt-5">
       <div className={`flex shadow rounded-lg bg-white ${isCol ? 'flex-col md:w-80 items-center' : ''}`}>
         <div
           style={{width: isCol ? "200px" : "410px"}}
@@ -16,7 +16,7 @@ export const LessonItem = ({icon, title, desc, link, isCol}) => {
           <img width="130" src={icon} />
         </div>
         <div className={isCol ? "p-8" : "p-10"}>
-          <div className="text-xl font-bold">{title}</div>
+          <div className="text-xl font-bold main-color">{title}</div>
           <div>{desc}</div>
           <div className="pt-5">
             <Link to={link}>
@@ -35,10 +35,10 @@ export const LessonItem = ({icon, title, desc, link, isCol}) => {
 const Lesson = () => {
   const {t} = useTranslation("common");
   return (
-    <div style={{backgroundColor: '#f6f6f6'}} className="py-8 flex justify-center">
-      <div className="w-5/6 md:w-1/2">
+    <div style={{backgroundColor: '#f6f6f6'}} className="py-5 flex justify-center">
+      <div className="w-5/6 md:max-w-screen-lg">
         <LessonItem
-          icon={"/img/Icon-Performance Coaching@2x.png"}
+          icon={"/img/Icon-Turnitin Feedback.png"}
           title={t("lesson-title1")}
           desc={t("lesson-desc1")}
           link="/masterclass"
@@ -54,6 +54,12 @@ const Lesson = () => {
           title={t("lesson-title3")}
           desc={t("lesson-desc3")}
           link="/phdready"
+        />
+        <LessonItem
+          icon={"/icon/icon_phD preparation@3x.png"}
+          title={"Become a partner"}
+          desc={t("lesson-desc3")}
+          link="/partner"
         />
       </div>
     </div>

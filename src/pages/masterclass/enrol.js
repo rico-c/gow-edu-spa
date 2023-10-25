@@ -62,28 +62,28 @@ export const Enrol = () => {
                         <img src="/img/about_v2.png" className="rounded-full w-20" />
                       </div>
                       <div>
-                        <div className="font-bold text-lg main-color">Presenter:</div>
+                        <div className="font-bold text-lg main-color">Presenter</div>
                         <div>{info.presenter_name}</div>
                       </div>
                     </div>
                     <div className="border-b py-5">
-                      <div className="font-bold text-lg flex items-center gap-2"><GlobalOutlined />Language:</div>
+                      <div className="font-bold text-lg flex items-center gap-2"><GlobalOutlined />Language</div>
                       <div className="text-gray-700">{info.lang_info}</div>
                     </div>
                     {/* <div className="border-b py-5">
-                      <div className="font-bold text-lg">Duration:</div>
+                      <div className="font-bold text-lg">Duration</div>
                       <div className="text-gray-700">{info.time_info}</div>
                     </div> */}
                     <div className="border-b py-5">
-                      <div className="font-bold text-lg flex items-center gap-2"><FileTextOutlined />Description:</div>
+                      <div className="font-bold text-lg flex items-center gap-2"><FileTextOutlined />Description</div>
                       <div className="text-gray-700" dangerouslySetInnerHTML={{__html: info.long_info}}></div>
                     </div>
                     <div className="border-b py-5">
-                      <div className="font-bold text-lg flex items-center gap-2"><UserOutlined />Profile of Presenter:</div>
+                      <div className="font-bold text-lg flex items-center gap-2"><UserOutlined />Profile of Presenter</div>
                       <div className="text-gray-700" dangerouslySetInnerHTML={{__html: info.long_info}}></div>
                     </div>
                     {/* <div className="border-b py-5">
-                      <div className="font-bold text-lg">Price:</div>
+                      <div className="font-bold text-lg">Price</div>
                       <div className="text-gray-700" >{info.price_info}</div>
                     </div> */}
                   </div>
@@ -101,21 +101,21 @@ export const Enrol = () => {
                   <Form.Item
                     label={'First Name'}
                     name="first-name"
-                    rules={[{required: true}]}
+                    rules={[{required: true,  message: 'First name is required'}]}
                   >
                     <Input placeholder={t('contact-form-name')} />
                   </Form.Item>
                   <Form.Item
                     label={'Last Name'}
                     name="last-name"
-                    rules={[{required: true}]}
+                    rules={[{required: true,  message: 'Last name is required'}]}
                   >
                     <Input placeholder={t('contact-form-name')} />
                   </Form.Item>
                   <Form.Item
                     label={t('contact-form-email')}
                     name="email"
-                    rules={[{required: true}]}
+                    rules={[{required: true,  message: 'Email is required'}]}
                   >
                     <Input placeholder={t('contact-form-email')} />
                   </Form.Item>

@@ -120,9 +120,11 @@ const University = () => {
         <div className="flex justify-center">
           <img src="/img/Find_my_university.jpg" alt="university" className="max-w-screen-xl rounded-lg" />
         </div>
+        <div className="flex justify-center">
+          <HeadingSection  img="/icon/Icon-Uni Prep@2x.png" header={t('title')} desc={t('desc')} />
+        </div>
         <div className="flex justify-center pb-10">
-          <div className="px-5 md:px-0 w-full md:w-1/2 ">
-            <HeadingSection fullWidth img="/img/icon_icon_Get connected.png" header={t('title')} desc={t('desc')} />
+          <div className="px-5 md:px-0 w-full md:max-w-screen-xl">
             <div className="flex justify-center pb-5">
               <img src="/img/theWord.png" width="250px" />
             </div>

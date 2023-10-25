@@ -32,7 +32,7 @@ const Home = () => {
         {t('value-desc')}
       </SectionTitle>
       <div className="flex justify-center relative pb-5">
-        <img className="rounded-lg" src={'/img/welcome.png'} fill="true" alt={'welcome'} />
+        <img className="rounded-lg md:max-w-screen-lg" src={'/img/welcome.png'} fill="true" alt={'welcome'} />
         <div className="absolute text-white top-1/2 text-2xl md:text-5xl lg:text-8xl shadow-lg" style={{transform: "translateY(-50%)"}}>{t('logo')}</div>
       </div>
       <Lesson />

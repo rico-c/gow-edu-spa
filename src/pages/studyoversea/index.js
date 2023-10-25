@@ -26,10 +26,13 @@ const StudyOversea = () => {
         <div className="w-full flex justify-center pb-5">
           <img src={'/img/Study_overseas.jpg'} className="w-full md:max-w-screen-xl block rounded-lg" />
         </div>
+        <div className="flex justify-center">
+          <HeadingSection img={'/img/Icon--Leader Prep.png'} header={t('oversea')} desc={t('oversea-desc')} />
+        </div>
+        
         <div className="flex justify-center pb-10" style={{backgroundColor: 'rgb(246, 246, 246)'}}>
           <div className="block md:flex md:max-w-screen-xl">
             <div className="md:max-w-screen-xl">
-            <HeadingSection fullWidth img={'/img/Icon--Leader Prep.png'} header={t('oversea')} desc={t('oversea-desc')} />
               <div className="pl-10 md:pl-0 pr-10" >
                 <LessonItem
                   icon={"/icon/Icon-Turnitin Feedback@2x.png"}

@@ -20,7 +20,7 @@ const SectionTitle = (props) => {
       )}
 
       {props.children && (
-        <p className="text-left max-w-7xl py-4 leading-normal text-gray-900  " dangerouslySetInnerHTML={{__html: props.children}}>
+        <p className="text-left md:max-w-screen-md py-4 leading-normal text-gray-900  " dangerouslySetInnerHTML={{__html: props.children}}>
         </p>
       )}
     </Container>

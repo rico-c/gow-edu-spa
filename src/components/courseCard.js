@@ -39,7 +39,7 @@ export const CourseCard = ({courseInfo}) => {
       </div>
 
       <div className='p-5'>
-        <div className='font-bold text-2xl mb-2 py-2' style={{color: 'rgb(56, 56, 56)'}}>
+        <div className='font-bold text-xl mb-2 py-2 main-color' style={{minHeight: '72px'}}>
           {course_name}
         </div>
         <div className='flex gap-2'>
@@ -47,7 +47,7 @@ export const CourseCard = ({courseInfo}) => {
             <img src={profile_img_url} className='rounded-full' />
           </div>
           <div>
-            <div className='font-bold text-lg main-color'>
+            <div className='font-bold text-lg'>
               Presenter
             </div>
             <div>
@@ -56,11 +56,11 @@ export const CourseCard = ({courseInfo}) => {
           </div>
         </div>
         <div className="border-b py-2">
-          <div className="font-bold text-lg flex items-center gap-2"><GlobalOutlined style={{fontSize: '16px'}} />Language:</div>
+          <div className="font-bold text-lg flex items-center gap-2"><GlobalOutlined style={{fontSize: '16px'}} />Language</div>
           <div className="text-gray-700">{lang_info}</div>
         </div>
         <div className="border-b py-2">
-          <div className="font-bold text-lg flex items-center gap-2"><FileTextOutlined style={{fontSize: '16px'}} />Description:</div>
+          <div className="font-bold text-lg flex items-center gap-2"><FileTextOutlined style={{fontSize: '16px'}} />Description</div>
           <div className="text-gray-700" dangerouslySetInnerHTML={{__html: short_info}}></div>
         </div>
       </div>
