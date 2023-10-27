@@ -4,7 +4,7 @@ import Navbar from "../components/navbar";
 import PartnerForm from "../components/partner";
 import PartnerDetail from "../components/partnerDetail";
 import {useTranslation} from "react-i18next";
-import {HeadingSection} from "../components/headingSection";
+import {HeadingBlock} from "../components/headingBlock";
 import {RightOutlined} from "@ant-design/icons";
 import {Button, Checkbox} from "antd"
 import {useState} from "react";
@@ -17,19 +17,12 @@ const Partner = () => {
 
   const [agreeTerms, setAgreeTerms] = useState(false)
 
-  console.log(4, agreeTerms);
-
   return (
     <>
 
       <Navbar />
       <div>
-        <div className="w-full flex justify-center">
-          <img src="/img/course_advice.jpg" alt="university" className="w-full md:max-w-screen-xl block rounded-lg" />
-        </div>
-        <div className="flex justify-center">
-          <HeadingSection step={step} img={'/img/WechatIMG1663.png'} header={t('partner-title')} desc={t('oversea-desc')} />
-        </div>
+        <HeadingBlock smallIcon bg="/img/course_advice.jpg" step={step} img={'/img/WechatIMG1663.png'} header={t('partner-title')} desc={t('oversea-desc')} />
         {
           step === 1 && <>
             <div className="text-center pb-10 px-10  md:flex-row flex items-center justify-center flex-wrap">

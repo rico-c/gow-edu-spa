@@ -9,7 +9,7 @@ import {useEffect, useState} from "react";
 import isMobile from 'ismobilejs';
 import {MainButton} from '../../components/button'
 import {StudyForm} from "../../components/studyform";
-import {HeadingSection} from "../../components/headingSection";
+import {HeadingBlock} from "../../components/headingBlock";
 
 const University = () => {
   const {t} = useTranslation("university");
@@ -117,20 +117,12 @@ const University = () => {
 
       <Navbar />
       <div>
-        <div className="flex justify-center">
-          <img src="/img/Find_my_university.jpg" alt="university" className="max-w-screen-xl rounded-lg" />
-        </div>
-        <div className="flex justify-center">
-          <HeadingSection  img="/icon/Icon-Uni Prep@2x.png" header={t('title')} desc={t('desc')} />
-        </div>
-        <div className="flex justify-center pb-10">
-          <div className="px-5 md:px-0 w-full md:max-w-screen-xl">
-            <div className="flex justify-center pb-5">
-              <img src="/img/theWord.png" width="250px" />
-            </div>
+        <HeadingBlock bg="/img/Find_my_university.jpg" img="/icon/Icon-Uni Prep@2x.png" header={t('title')} desc={t('desc')} />
+        <div className="flex justify-center pb-10 pt-10">
+          <div className="px-5 md:px-20 w-full md:max-w-screen-xl">
             <div className="text-xl font-bold">{t("sub-title")}</div>
             <div className="text-lg pb-5">{t("sub-title-1")}</div>
-            <div className="max-w-md">
+            <div className="flex gap-10">
               <List bordered>
                 <List.Item style={{backgroundColor: "#f5f5f5"}}>
                   {t("areas-1")}
@@ -144,6 +136,9 @@ const University = () => {
                   {t("areas-5")}
                 </List.Item>
               </List>
+              <div className="md:flex items-center hidden">
+                <img src="/img/theWord.png" alt="" />
+              </div>
             </div>
             <div className="text-xl font-bold py-5">{t("destination")}</div>
             <div className="flex gap-5">

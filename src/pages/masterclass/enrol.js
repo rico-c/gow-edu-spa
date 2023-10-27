@@ -53,7 +53,7 @@ export const Enrol = () => {
           </div>
           <div className="flex justify-center">
             <div className="md:flex md:gap-5 w-5/6 md:max-w-screen-xl">
-              <div className="md:w-2/3 md:pr-5">
+              <div className="md:w-2/3 md:pr-5 md:pl-10">
                 <div className="pb-5 flex justify-between">
                   <div>
                     <div className="font-bold text-2xl my-5 ">{info.course_name}</div>
@@ -92,7 +92,7 @@ export const Enrol = () => {
                 </div> */}
                 </div>
               </div>
-              <div className="md:flex-1 md:w-1/3 mt-10">
+              <div className="md:flex-1 md:w-1/3 mt-10 md:mr-10">
                 <Form
                   className="md:p-5 md:border rounded-lg"
                   form={form}

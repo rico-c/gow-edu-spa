@@ -2,7 +2,7 @@ import Footer from "../../components/footer";
 import Navbar from "../../components/navbar";
 import {LessonItem} from "../../components/lesson";
 import {useTranslation} from "react-i18next";
-import {HeadingSection} from "../../components/headingSection";
+import {HeadingBlock} from "../../components/headingBlock";
 import {
   BrowserRouter as Router,
   Switch,
@@ -23,16 +23,11 @@ const StudyOversea = () => {
     <>
       <Navbar />
       <div className="" >
-        <div className="w-full flex justify-center pb-5">
-          <img src={'/img/Study_overseas.jpg'} className="w-full md:max-w-screen-xl block rounded-lg" />
-        </div>
-        <div className="flex justify-center">
-          <HeadingSection img={'/img/Icon--Leader Prep.png'} header={t('oversea')} desc={t('oversea-desc')} />
-        </div>
-        
+        <HeadingBlock bg="/img/Study_overseas.jpg" img={'/img/Icon--Leader Prep.png'} header={t('oversea')} desc={t('oversea-desc')} />
+
         <div className="flex justify-center pb-10" style={{backgroundColor: 'rgb(246, 246, 246)'}}>
-          <div className="block md:flex md:max-w-screen-xl">
-            <div className="md:max-w-screen-xl">
+          <div className="block md:flex md:max-w-screen-xl md:px-10">
+            <div className="">
               <div className="pl-10 md:pl-0 pr-10" >
                 <LessonItem
                   icon={"/icon/icon_Live Masterclass.png"}

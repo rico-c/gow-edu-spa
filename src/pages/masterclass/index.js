@@ -3,7 +3,7 @@ import {useEffect, useState, useMemo} from 'react'
 import Navbar from "../../components/navbar";
 import {CourseCard} from "../../components/courseCard";
 import {useTranslation} from "react-i18next";
-import {HeadingSection} from "../../components/headingSection";
+import {HeadingBlock} from "../../components/headingBlock";
 import {Detail} from "./detail";
 import {Enrol} from "./enrol";
 import {Select} from 'antd';
@@ -66,12 +66,7 @@ const MasterClass = () => {
     <>
       <Navbar />
       <div>
-        <div className="w-full flex justify-center">
-          <img src="/img/Masterclasses.jpg" alt="university" className="w-full md:max-w-screen-xl block rounded-lg" />
-        </div>
-        <div className="flex justify-center md:px-10">
-          <HeadingSection img={'/img/Icon-Turnitin Feedback.png'} header={t('master')} desc={t('oversea-desc')} />
-        </div>
+        <HeadingBlock bg="/img/Masterclasses.jpg" img={'/img/Icon-Turnitin Feedback.png'} header={t('master')} desc={t('oversea-desc')} />
         <div className="flex justify-center md:p-10 mb-5">
           <div className="w-5/6 md:max-w-screen-xl">
             <div className="md:flex justify-center mb-10 items-center">

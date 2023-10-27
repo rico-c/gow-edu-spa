@@ -2,7 +2,7 @@ import Footer from "../components/footer";
 
 import Navbar from "../components/navbar";
 import {useTranslation} from "react-i18next";
-import {HeadingSection} from "../components/headingSection";
+import {HeadingBlock} from "../components/headingBlock";
 import {StudyForm} from "../components/studyform";
 
 const PhdReady = () => {
@@ -13,15 +13,18 @@ const PhdReady = () => {
       <Navbar />
       <div >
         <div>
-          <div className="w-full flex justify-center">
-            <img src="/img/IMG_6762.png" alt="university" className="w-full md:max-w-screen-xl block rounded-lg" />
-          </div>
-          <div className="flex justify-center">
-            <HeadingSection img={'/icon/icon_phD preparation@3x.png'} header={'Phd Preparation'} desc={t('oversea-desc')} />
-          </div>
-          <div className="flex justify-center">
-            <div className="md:max-w-screen-sm"><StudyForm /></div>
-            
+          <HeadingBlock smallIcon bg="/img/IMG_6762.png" img={'/icon/icon_phD preparation@3x.png'} header={'PhD Preparation'} desc={t('oversea-desc')} />
+          <div className="flex justify-center pb-10">
+            <div className="block md:flex md:max-w-screen-xl md:px-10">
+              <div className="flex-1">
+                <div className="pl-10 md:pl-0 pr-10" >
+                  WIP
+                </div>
+              </div>
+              <div className="px-10 md:px-0 md:w-1/4" style={{minWidth: '300px'}}>
+                <StudyForm shadow />
+              </div>
+            </div>
           </div>
         </div>
       </div>

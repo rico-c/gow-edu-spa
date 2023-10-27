@@ -35,7 +35,7 @@ code {
   transition: opacity 1000ms ease 0s, visibility 1000ms ease 0s !important;
 }
 .feedback-card-shadow div{
-  line-height: 2;
+  /* line-height: 2; */
 }
 .ant-float-btn {
   /* bottom: 90px !important; */
@@ -76,4 +76,7 @@ code {
 
 .PlaypenSans {
   font-family: "CormorantGaramond";
+}
+.ant-form-item {
+  margin-bottom: 10px;
 }

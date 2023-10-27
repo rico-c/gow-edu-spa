@@ -1,9 +1,9 @@
 import Footer from "../components/footer";
- 
+
 import Navbar from "../components/navbar";
 import Container from "../components/container";
 import {useTranslation} from "react-i18next";
-import {HeadingSection} from "../components/headingSection";
+import {HeadingBlock} from "../components/headingBlock";
 
 const QuoteIcon = ({rightside}) => {
   return <img className={`absolute w-7 h-7 ${rightside ? 'right-10' : 'left-10'}`} style={{top: '-10px', transform: rightside ? 'rotateY(180deg)' : 'null'}} src={"/img/home-marks2.png"} />;
@@ -11,18 +11,13 @@ const QuoteIcon = ({rightside}) => {
 
 const Testimonials = () => {
   const {t} = useTranslation("common");
-  
+
   return (
     <>
-       
+
       <Navbar />
       <>
-      <div className="w-full flex justify-center pb-5">
-        <img src="/img/image0 (11).png" alt="university" className="w-full md:max-w-screen-xl block rounded-lg" />
-      </div>
-      <div className="flex justify-center">
-        <HeadingSection img={'/img/Icon-Performance Coaching@2x.png'} header={'Feedback'} desc={t('course-advise-desc')} />
-      </div>
+        <HeadingBlock bg="/img/imge00.png" img={'/img/Icon-Performance Coaching@2x.png'} header={'Feedback'} desc={t('course-advise-desc')} />
         {/* <div
           className="w-full h-20 flex gap-5 justify-center items-center"
           style={{backgroundColor: "#0d7a98"}}

@@ -1,9 +1,12 @@
- 
-import {Button, Input, Form, Carousel} from "antd";
+
+import {Button, Input, Form, Carousel, message, Checkbox} from "antd";
 import {RightOutlined} from "@ant-design/icons";
 import {useTranslation} from "react-i18next";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 // import {useRouter} from "next/router";
+import {fetchNewLetter} from "../api/new-letter";
+import {checkEmailFormat} from "../utils/checkFormat";
+import {useState} from "react";
 
 const labelStyle = {
   backgroundColor: "rgba(0, 0, 0, 0.4)",
@@ -13,8 +16,55 @@ const labelStyle = {
 };
 
 const Hero = () => {
-  const {t,i18n } = useTranslation("common");
+  const {t, i18n} = useTranslation("common");
   const locale = i18n.language;
+
+  const [messageApi, contextHolder] = message.useMessage();
+
+  const [isAgree, setAgree] = useState(true);
+
+  const onChange = (e) => {
+    setAgree(e.target.checked);
+  };
+
+  const handleNewLetter = async (data) => {
+    if (!isAgree) {
+      messageApi.open({
+        type: "error",
+        content: t("subscribe-error"),
+      });
+
+      return;
+    }
+    const {name, email} = data;
+    if (!name || !email) {
+      messageApi.open({
+        type: "error",
+        content: t("subscribe-param"),
+      });
+
+      return;
+    }
+    if (!checkEmailFormat(email)) {
+      messageApi.open({
+        type: "error",
+        content: t("subscribe-format"),
+      });
+
+      return;
+    }
+    const res = await fetchNewLetter({
+      first_name: name,
+      email_address: email,
+    });
+    if (res.data === "success") {
+      messageApi.open({
+        type: "success",
+        content: t("subscribe-callback"),
+      });
+    }
+  };
+
   return (
     <>
       <Carousel effect="fade" autoplay autoplaySpeed={4000} swipeToSlide draggable className="" style={{minHeight: "calc(100vw * 0.20)"}}>
@@ -116,17 +166,59 @@ const Hero = () => {
               <img className="" src={"/img/home-asscimg.png"} alt="x" />
             </div> */}
             {locale === "en" && (
-              <div className="flex flex-col items-center h-full max-w-md">
-                <div>
-                  <div className="text-2xl my-3.5">{t("email-subscription")}</div>
-                  <div className="text-base">{t("email-subscription-desc")}</div>
-                  <div className="text-base">{t("subscribtion-cancel")}</div>
-                </div>
-                <div className="flex lg:hidden mt-5">
+              <div>
+                <div className="flex flex-col items-center h-full max-w-md">
+                  <div>
+                    <div className="text-2xl my-2" dangerouslySetInnerHTML={{__html: t("email-subscription")}}></div>
+                    <div className="text-base">{t("email-subscription-desc")}</div>
+                    <div className="text-base">{t("subscribtion-cancel")}</div>
+                  </div>
+                  {/* <div className="flex lg:hidden mt-5">
                   <Link to="/subscribe">
                     <Button className="bg-white w-full lg:w-auto flex items-center" style={{background: "#f05622", color: "#fff", border: 'none'}}>{t('read-more')}<RightOutlined /></Button>
                   </Link>
+                </div> */}
                 </div>
+                <Form
+                  layout="horizontal"
+                  className="text-center lg:text-left text-white"
+                  onFinish={handleNewLetter}
+                >
+                  <div className="pt-5 gap-6">
+                    <div className="flex gap-5">
+                      <div>
+                        {/* <div>{t("name")}</div> */}
+                        <Form.Item name="name">
+                          <Input className="w-48" placeholder="Please input your name"/>
+                        </Form.Item>
+                      </div>
+                      <div>
+                        {/* <div>{t("email")}</div> */}
+                        <Form.Item name="email">
+                          <Input className="w-48" placeholder="Please input your email"/>
+                        </Form.Item>
+                      </div>
+                    </div>
+                    <div className="pb-5 flex items-center gap-5">
+                      <Checkbox
+                        checked={isAgree}
+                        onChange={onChange}
+                        className="pr-2"
+                      />
+                      I agree to the{" "}
+                      <Link to="/terms" className="underline">
+                        terms and conditions.
+                      </Link>
+                      <Button
+                        className="bg-white w-full lg:w-auto"
+                        htmlType="submit"
+                        style={{background: "#f05622", color: "#fff"}}
+                      >
+                        {t("subscribe")}
+                      </Button>
+                    </div>
+                  </div>
+                </Form>
               </div>
             )}
             {locale === "zh" && (
@@ -138,13 +230,13 @@ const Hero = () => {
               </div>
             )}
           </div>
-          {
+          {/* {
             locale === 'en' && (<div className="items-center hidden lg:flex">
               <Link to="/subscribe">
                 <Button className="bg-white w-full lg:w-auto flex items-center" style={{background: "#f05622", color: "#fff", border: 'none'}}>{t('read-more')}<RightOutlined /></Button>
               </Link>
             </div>)
-          }
+          } */}
         </div>
       </div>
     </>
