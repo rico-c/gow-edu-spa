@@ -185,7 +185,7 @@ const Hero = () => {
                   onFinish={handleNewLetter}
                 >
                   <div className="pt-5 gap-6">
-                    <div className="flex gap-5">
+                    <div className="md:flex gap-5">
                       <div>
                         {/* <div>{t("name")}</div> */}
                         <Form.Item name="name">
@@ -199,7 +199,7 @@ const Hero = () => {
                         </Form.Item>
                       </div>
                     </div>
-                    <div className="pb-5 flex items-center gap-5">
+                    <div className="pb-5 md:flex items-center gap-5">
                       <Checkbox
                         checked={isAgree}
                         onChange={onChange}
