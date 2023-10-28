@@ -13,45 +13,49 @@ import PhdReady from "./pages/phdready";
 import MasterClass from "./pages/masterclass";
 import StudyOversea from "./pages/studyoversea/index";
 import {WechatFloat} from "./components/wechatfloat";
+import ScrollTop from "./components/scrollTop";
+
 function App() {
   return (
     <div className="App">
       <Router>
-        <Switch>
-          <Route path="/" exact>
-            <Home />
-          </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/contact">
-            <Contact />
-          </Route>
-          <Route path="/feedback">
-            <Feedback />
-          </Route>
-          <Route path="/partner">
-            <Partner />
-          </Route>
-          <Route path="/privacy">
-            <Privacy />
-          </Route>
-          <Route path="/subscribe">
-            <Subscribe />
-          </Route>
-          <Route path="/terms">
-            <Terms />
-          </Route>
-          <Route path="/phdready">
-            <PhdReady />
-          </Route>
-          <Route path="/masterclass">
-            <MasterClass />
-          </Route>
-          <Route path="/studyoversea">
-            <StudyOversea />
-          </Route>
-        </Switch>
+        <ScrollTop >
+          <Switch>
+            <Route path="/" exact>
+              <Home />
+            </Route>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/contact">
+              <Contact />
+            </Route>
+            <Route path="/feedback">
+              <Feedback />
+            </Route>
+            <Route path="/partner">
+              <Partner />
+            </Route>
+            <Route path="/privacy">
+              <Privacy />
+            </Route>
+            <Route path="/subscribe">
+              <Subscribe />
+            </Route>
+            <Route path="/terms">
+              <Terms />
+            </Route>
+            <Route path="/phdready">
+              <PhdReady />
+            </Route>
+            <Route path="/masterclass">
+              <MasterClass />
+            </Route>
+            <Route path="/studyoversea">
+              <StudyOversea />
+            </Route>
+          </Switch>
+        </ScrollTop>
       </Router>
       <WechatFloat />
     </div>

@@ -148,7 +148,7 @@ const Hero = () => {
 
       {/* 收集邮件订阅 */}
       <div
-        className="w-full flex justify-center mt-5 h-60 lg:mt-10 h-auto lg:h-72"
+        className="w-full flex justify-center mt-5 lg:mt-10 h-auto lg:h-72"
         style={{backgroundColor: "#0d7a98"}}
       >
         <div className="relative p-5 lg:p-0 flex gap-5">
@@ -159,6 +159,7 @@ const Hero = () => {
               alt="x"
               width="220"
               height="320"
+              style={{transform: 'translateX(-30px)'}}
             />
           </div>
           <div className="text-white right-0 py-5">
@@ -167,7 +168,7 @@ const Hero = () => {
             </div> */}
             {locale === "en" && (
               <div>
-                <div className="flex flex-col items-center h-full max-w-md">
+                <div className="flex flex-col items-center h-full max-w-xl">
                   <div>
                     <div className="text-2xl my-2" dangerouslySetInnerHTML={{__html: t("email-subscription")}}></div>
                     <div className="text-base">{t("email-subscription-desc")}</div>
@@ -185,21 +186,27 @@ const Hero = () => {
                   onFinish={handleNewLetter}
                 >
                   <div className="pt-5 gap-6">
-                    <div className="md:flex gap-5">
+                    <div className="md:flex gap-3">
                       <div>
                         {/* <div>{t("name")}</div> */}
-                        <Form.Item name="name">
-                          <Input className="w-48" placeholder="Please input your name"/>
+                        <Form.Item name="first-name">
+                          <Input className="w-48" placeholder="Input your first name"/>
+                        </Form.Item>
+                      </div>
+                      <div>
+                        {/* <div>{t("name")}</div> */}
+                        <Form.Item name="lastname">
+                          <Input className="w-48" placeholder="Input your last name"/>
                         </Form.Item>
                       </div>
                       <div>
                         {/* <div>{t("email")}</div> */}
                         <Form.Item name="email">
-                          <Input className="w-48" placeholder="Please input your email"/>
+                          <Input className="w-48" placeholder="Input your email"/>
                         </Form.Item>
                       </div>
                     </div>
-                    <div className="pb-5 md:flex items-center gap-5">
+                    <div className="pb-5 md:flex items-center gap-2">
                       <Checkbox
                         checked={isAgree}
                         onChange={onChange}
@@ -210,11 +217,11 @@ const Hero = () => {
                         terms and conditions.
                       </Link>
                       <Button
-                        className="bg-white w-full lg:w-auto"
+                        className="bg-white w-full lg:w-auto md:ml-10"
                         htmlType="submit"
                         style={{background: "#f05622", color: "#fff"}}
                       >
-                        {t("subscribe")}
+                        {'Subscribe now'}
                       </Button>
                     </div>
                   </div>

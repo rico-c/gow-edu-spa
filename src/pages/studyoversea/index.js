@@ -26,10 +26,11 @@ const StudyOversea = () => {
         <HeadingBlock bg="/img/Study_overseas.jpg" img={'/img/Icon--Leader Prep.png'} header={t('oversea')} desc={t('oversea-desc')} />
 
         <div className="flex justify-center pb-10" style={{backgroundColor: 'rgb(246, 246, 246)'}}>
-          <div className="block md:flex md:max-w-screen-xl md:px-10">
+          <div className="block md:flex md:max-w-screen-xl md:pl-10">
             <div className="">
               <div className="pl-10 md:pl-0 pr-10" >
                 <LessonItem
+                  smallIcon
                   icon={"/icon/icon_Live Masterclass.png"}
                   title={t("course-advise")}
                   desc={t("lesson-desc1")}
@@ -42,30 +43,33 @@ const StudyOversea = () => {
                   link="/studyoversea/university"
                 />
                 <LessonItem
+                  smallIcon
                   icon={"/icon/icon_phD preparation@3x.png"}
                   title={t("phd-pre")}
                   desc={t("lesson-desc1")}
-                  link="/studyoversea/phdpre"
+                  link="/phdready"
                 />
               </div>
               <div className="pl-10 md:pl-0 pr-10 md:pr-0 md:flex gap-5 justify-center" style={{backgroundColor: 'rgb(246, 246, 246)'}}>
                 <LessonItem
                   isCol
-                  icon={"/icon/icon_phD preparation@3x.png"}
-                  title={t("phd-pre")}
+                  roundIcon
+                  icon={"/img/heading-master.jpg"}
+                  title={'Masterclasses'}
                   desc={t("lesson-desc1")}
                   link="/studyoversea/phdpre"
                 />
                 <LessonItem
                   isCol
-                  icon={"/icon/icon_phD preparation@3x.png"}
-                  title={t("phd-pre")}
+                  roundIcon
+                  icon={"/img/heading-partner.jpg"}
+                  title={'Become a Partner'}
                   desc={t("lesson-desc1")}
                   link="/studyoversea/phdpre"
                 />
               </div>
             </div>
-            <div className="px-10 md:px-0 md:w-1/4 mt-10" style={{minWidth: '300px'}}>
+            <div className="px-10 md:px-0 md:w-1/4 mt-5 rounded-lg overflow-hidden" style={{minWidth: '320px'}}>
               <StudyForm shadow />
             </div>
           </div>

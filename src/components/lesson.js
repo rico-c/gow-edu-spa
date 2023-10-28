@@ -4,16 +4,16 @@ import {useTranslation} from "react-i18next";
 import {RightOutlined} from "@ant-design/icons";
 import {Button} from "antd";
 
-export const LessonItem = ({icon, title, desc, link, isCol}) => {
+export const LessonItem = ({icon, title, desc, link, isCol, roundIcon, smallIcon}) => {
   const {t} = useTranslation("common");
   return (
     <div className="flex justify-center mt-5">
       <div className={`flex shadow rounded-lg bg-white ${isCol ? 'flex-col md:w-80 items-center' : ''}`}>
         <div
-          style={{width: isCol ? "200px" : "410px"}}
-          className={`hidden md:flex justify-center items-center ${isCol ? 'flex justify-center p-5' : 'p-10 border-r'}`}
+          style={{width: isCol ? "200px" : "410px", minWidth: isCol ? "200px" : "200px"}}
+          className={`hidden md:flex justify-center items-center ${isCol ? 'flex justify-center p-5' : 'p-5 border-r'}`}
         >
-          <img width="130" src={icon} />
+          <img width={smallIcon ? "155" : "130"} src={icon} className={`${roundIcon ? 'rounded-full' : ''}`} alt="" />
         </div>
         <div className={isCol ? "p-8" : "p-10"}>
           <div className="text-xl font-bold main-color">{title}</div>
@@ -50,13 +50,15 @@ const Lesson = () => {
           link="/studyoversea"
         />
         <LessonItem
+          smallIcon
           icon={"/icon/icon_phD preparation@3x.png"}
           title={t("lesson-title3")}
           desc={t("lesson-desc3")}
           link="/phdready"
         />
         <LessonItem
-          icon={"/icon/icon_phD preparation@3x.png"}
+          smallIcon
+          icon={"/img/WechatIMG1663.png"}
           title={"Become a partner"}
           desc={t("lesson-desc3")}
           link="/partner"

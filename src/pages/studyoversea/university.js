@@ -136,7 +136,7 @@ const University = () => {
                   {t("areas-5")}
                 </List.Item>
               </List>
-              <div className="md:flex items-center hidden">
+              <div className="md:flex flex-1 items-center justify-center hidden">
                 <img src="/img/theWord.png" alt="" />
               </div>
             </div>
@@ -177,7 +177,7 @@ const University = () => {
             <div className="text-xl font-bold py-5">
               {t("top-university")} - {info.country_name}
             </div>
-            <div className="flex flex-wrap gap-5">
+            <div className="flex flex-wrap justify-center gap-5">
               {
                 data.slice(0, 8).map((i) => <div key={i.school_id} className="w-1/5 shadow flex justify-center items-center p-1 rounded">
                   <Link to={`/studyoversea/detail/${i.school_id}/${currentYear}`}>
