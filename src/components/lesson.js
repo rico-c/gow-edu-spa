@@ -13,9 +13,9 @@ export const LessonItem = ({icon, title, desc, link, isCol, roundIcon, smallIcon
           style={{width: isCol ? "200px" : "410px", minWidth: isCol ? "200px" : "200px"}}
           className={`hidden md:flex justify-center items-center ${isCol ? 'flex justify-center p-5' : 'p-5 border-r'}`}
         >
-          <img width={smallIcon ? "155" : "130"} src={icon} className={`${roundIcon ? 'rounded-full' : ''}`} alt="" />
+          <img width={smallIcon ? "155" : roundIcon ? "140" : "130"} src={icon} className={`${roundIcon ? 'rounded-full' : ''}`} alt="" />
         </div>
-        <div className={isCol ? "p-8" : "p-10"}>
+        <div className={isCol ? "p-8 pt-2" : "p-10"}>
           <div className="text-xl font-bold main-color">{title}</div>
           <div>{desc}</div>
           <div className="pt-5">

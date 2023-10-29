@@ -75,7 +75,7 @@ export const StudyForm = ({shadow}) => {
     fetch();
   }, [])
 
-  return <div className="w-full p-5 bg-white">
+  return <div className="w-full p-5 bg-white border">
     <div style={{background: 'linear-gradient(to bottom, #0ACAD5, #0299C4)', color: '#fff', width: 'calc(100% + 2.5rem)', position: 'relative', top: '-1.25rem', left: '-1.25rem', padding: '1.25rem'}}>
       <div className='text-xl font-bold'>
         {t('title')}

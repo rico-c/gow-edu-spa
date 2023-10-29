@@ -26,10 +26,15 @@ const Partner = () => {
         {
           step === 1 && <>
             <div className="text-center pb-10 px-10  md:flex-row flex items-center justify-center flex-wrap">
-              <Checkbox className="mr-2" value={agreeTerms} onChange={val => {setAgreeTerms(val.target.checked)}}> {t('partner-pdf')}<Button onClick={e => {
-                e.stopPropagation();
-                e.preventDefault();
-              }} type="link" className="align-middle">{t("terms-conditions")}<RightOutlined className="align-middle" /></Button></Checkbox>
+              <Checkbox className="mr-2 flex items-center" value={agreeTerms} onChange={val => {setAgreeTerms(val.target.checked)}}>
+                {t('partner-pdf')}
+                <Button onClick={e => {
+                  e.stopPropagation();
+                  e.preventDefault();
+                }} type="link" className="align-middle px-1">
+                  {t("terms-conditions")}
+                  <RightOutlined className="align-middle" />
+                </Button></Checkbox>
             </div>
           </>
         }

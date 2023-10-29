@@ -111,11 +111,11 @@ const Hero = () => {
       <div>
         <div className="flex justify-center pt-10">{t("more-about-gow")}</div>
         <div className="flex justify-center">
-          <div className="lg:w-1/2 py-5 md:flex justify-between">
+          <div className="lg:w-1/2 py-5 md:flex justify-between items-center">
             <Button type="link" className="flex">
               <Link
                 to="/partner"
-                className="sm:text-sm lg:text-xl flex items-center gap-2 font-bold"
+                className="sm:text-sm lg:text-xl flex justify-center items-center gap-2 font-bold"
                 style={{color: "#f05622"}}
               >
                 {t("become-partner")}
@@ -124,8 +124,8 @@ const Hero = () => {
             </Button>
             <Button type="link" className="flex">
               <Link
-                to="/contact"
-                className="sm:text-sm lg:text-xl flex items-center gap-2 font-bold"
+                to="/studyoversea/advise"
+                className="sm:text-sm lg:text-xl flex justify-center items-center gap-2 font-bold"
                 style={{color: "#f05622"}}
               >
                 {t("course-advise")}
@@ -135,7 +135,7 @@ const Hero = () => {
             <Button type="link" className="flex">
               <Link
                 to="/studyoversea/university"
-                className="sm:text-sm lg:text-xl flex items-center gap-2 font-bold"
+                className="sm:text-sm lg:text-xl flex justify-center items-center gap-2 font-bold"
                 style={{color: "#f05622"}}
               >
                 {t("find-my-university")}
@@ -159,7 +159,6 @@ const Hero = () => {
               alt="x"
               width="220"
               height="320"
-              style={{transform: 'translateX(-30px)'}}
             />
           </div>
           <div className="text-white right-0 py-5">
@@ -168,9 +167,9 @@ const Hero = () => {
             </div> */}
             {locale === "en" && (
               <div>
-                <div className="flex flex-col items-center h-full max-w-xl">
+                <div className="flex flex-col items-center h-full max-w-2xl">
                   <div>
-                    <div className="text-2xl my-2" dangerouslySetInnerHTML={{__html: t("email-subscription")}}></div>
+                    <div className="text-2xl my-2 font-semibold" dangerouslySetInnerHTML={{__html: t("email-subscription")}}></div>
                     <div className="text-base">{t("email-subscription-desc")}</div>
                     <div className="text-base">{t("subscribtion-cancel")}</div>
                   </div>
@@ -190,29 +189,29 @@ const Hero = () => {
                       <div>
                         {/* <div>{t("name")}</div> */}
                         <Form.Item name="first-name">
-                          <Input className="w-48" placeholder="Input your first name"/>
+                          <Input className="w-48" placeholder="Your first name"/>
                         </Form.Item>
                       </div>
                       <div>
                         {/* <div>{t("name")}</div> */}
                         <Form.Item name="lastname">
-                          <Input className="w-48" placeholder="Input your last name"/>
+                          <Input className="w-48" placeholder="Your last name"/>
                         </Form.Item>
                       </div>
                       <div>
                         {/* <div>{t("email")}</div> */}
                         <Form.Item name="email">
-                          <Input className="w-48" placeholder="Input your email"/>
+                          <Input className="w-48" placeholder="Your email"/>
                         </Form.Item>
                       </div>
                     </div>
-                    <div className="pb-5 md:flex items-center gap-2">
+                    <div className="pb-5 md:flex items-center gap-1">
                       <Checkbox
                         checked={isAgree}
                         onChange={onChange}
                         className="pr-2"
                       />
-                      I agree to the{" "}
+                      I agree to the
                       <Link to="/terms" className="underline">
                         terms and conditions.
                       </Link>

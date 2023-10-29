@@ -28,6 +28,7 @@ const Home = () => {
       <Hero />
       <SectionTitle
         pretitle=""
+        align="left"
         title={t('slogan3')}>
         {t('value-desc')}
       </SectionTitle>
