@@ -4,6 +4,7 @@ import Navbar from "../components/navbar";
 import {useTranslation} from "react-i18next";
 import {HeadingBlock} from "../components/headingBlock";
 import {StudyForm} from "../components/studyform";
+import {LessonItem} from "../components/lesson";
 
 const PhdReady = () => {
   const {t} = useTranslation("common");
@@ -22,7 +23,23 @@ const PhdReady = () => {
                 </div>
               </div>
               <div className="px-10 md:px-0 md:w-1/4 rounded-lg overflow-hidden" style={{minWidth: '320px'}}>
-                <StudyForm shadow />
+                {/* <StudyForm shadow /> */}
+                <LessonItem
+                  isCol
+                  roundIcon
+                  icon={"/img/heading-master.jpg"}
+                  title={'Masterclasses'}
+                  desc={t("lesson-desc1")}
+                  link="/studyoversea/phdpre"
+                />
+                <LessonItem
+                  isCol
+                  roundIcon
+                  icon={"/img/heading-partner.jpg"}
+                  title={'Become a Partner'}
+                  desc={t("lesson-desc1")}
+                  link="/studyoversea/phdpre"
+                />
               </div>
             </div>
           </div>

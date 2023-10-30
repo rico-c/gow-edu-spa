@@ -7,7 +7,7 @@ import {Button} from "antd";
 export const LessonItem = ({icon, title, desc, link, isCol, roundIcon, smallIcon}) => {
   const {t} = useTranslation("common");
   return (
-    <div className="flex justify-center mt-5">
+    <div className="flex justify-center mt-5 border rounded">
       <div className={`flex shadow rounded-lg bg-white ${isCol ? 'flex-col md:w-80 items-center' : ''}`}>
         <div
           style={{width: isCol ? "200px" : "410px", minWidth: isCol ? "200px" : "200px"}}
