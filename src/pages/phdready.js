@@ -30,7 +30,7 @@ const PhdReady = () => {
                   icon={"/img/heading-master.jpg"}
                   title={'Masterclasses'}
                   desc={t("lesson-desc1")}
-                  link="/studyoversea/phdpre"
+                  link="/masterclass"
                 />
                 <LessonItem
                   isCol
@@ -38,7 +38,7 @@ const PhdReady = () => {
                   icon={"/img/heading-partner.jpg"}
                   title={'Become a Partner'}
                   desc={t("lesson-desc1")}
-                  link="/studyoversea/phdpre"
+                  link="/partner"
                 />
               </div>
             </div>

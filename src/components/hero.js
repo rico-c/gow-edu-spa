@@ -109,9 +109,9 @@ const Hero = () => {
         </div>
       </Carousel>
       <div>
-        <div className="flex justify-center pt-10">{t("more-about-gow")}</div>
+        <div className="flex justify-center pt-5 md:pt-10">{t("more-about-gow")}</div>
         <div className="flex justify-center">
-          <div className="lg:w-1/2 py-5 md:flex justify-between items-center">
+          <div className="lg:w-1/2 md:py-5 md:flex justify-between items-center">
             <Button type="link" className="flex">
               <Link
                 to="/partner"
@@ -148,10 +148,10 @@ const Hero = () => {
 
       {/* 收集邮件订阅 */}
       <div
-        className="w-full flex justify-center mt-5 lg:mt-10 h-auto lg:h-72"
+        className="w-full flex justify-center mt-2 lg:mt-10 h-auto lg:h-72"
         style={{backgroundColor: "#0d7a98"}}
       >
-        <div className="relative p-5 lg:p-0 flex gap-5">
+        <div className="relative px-5 md:px-5 md:py-5 lg:p-0 flex gap-5">
           <div className="hidden lg:block lg:w-60" style={{width: '220px'}}>
             <img
               className="absolute bottom-0 left-0 h-auto"
@@ -169,7 +169,7 @@ const Hero = () => {
               <div>
                 <div className="flex flex-col items-center h-full max-w-2xl">
                   <div>
-                    <div className="text-2xl my-2 font-semibold" dangerouslySetInnerHTML={{__html: t("email-subscription")}}></div>
+                    <div className="text-lg md:text-2xl my-2 font-semibold" dangerouslySetInnerHTML={{__html: t("email-subscription")}}></div>
                     <div className="text-base">{t("email-subscription-desc")}</div>
                     <div className="text-base">{t("subscribtion-cancel")}</div>
                   </div>
@@ -189,19 +189,19 @@ const Hero = () => {
                       <div>
                         {/* <div>{t("name")}</div> */}
                         <Form.Item name="first-name">
-                          <Input className="w-48" placeholder="Your first name"/>
+                          <Input className="w-full md:w-48" placeholder="Your first name"/>
                         </Form.Item>
                       </div>
                       <div>
                         {/* <div>{t("name")}</div> */}
                         <Form.Item name="lastname">
-                          <Input className="w-48" placeholder="Your last name"/>
+                          <Input className="w-full md:w-48" placeholder="Your last name"/>
                         </Form.Item>
                       </div>
                       <div>
                         {/* <div>{t("email")}</div> */}
                         <Form.Item name="email">
-                          <Input className="w-48" placeholder="Your email"/>
+                          <Input className="w-full md:w-48" placeholder="Your email"/>
                         </Form.Item>
                       </div>
                     </div>
@@ -212,11 +212,11 @@ const Hero = () => {
                         className="pr-2"
                       />
                       I agree to the
-                      <Link to="/terms" className="underline">
+                      <Link to="/terms" className="pl-1 md:pl-0 underline">
                         terms and conditions.
                       </Link>
                       <Button
-                        className="bg-white w-full lg:w-auto md:ml-10"
+                        className="bg-white w-full lg:w-auto md:ml-10 mt-5 md:mt-0"
                         htmlType="submit"
                         style={{background: "#f05622", color: "#fff"}}
                       >
