@@ -1,56 +1,12 @@
-import Footer from "../../components/footer";
 import {useEffect, useState, useMemo} from 'react'
 import Navbar from "../../components/navbar";
 import {useTranslation} from "react-i18next";
 import {HeadingBlock} from "../../components/headingBlock";
 import {LessonItem} from '../../components/lesson'
-import {fetchCourses} from '../../api/masterclass'
 
 export const Confirm = () => {
   const {t} = useTranslation("common");
-
-  const [programList, setProgramList] = useState([])
-  const [initprogramList, setInitProgramList] = useState([])
-
-  const programs = useMemo(() => {
-    const items = initprogramList.map(i => ({
-      value: i.link_code,
-      label: i.program_name
-    }));
-    return [
-      {
-        value: null,
-        label: 'All programs'
-      },
-      ...items
-    ]
-  }, [programList])
-
-  useEffect(() => {
-    const fetch = async () => {
-      const res = await fetchCourses();
-      setProgramList(res.program_list)
-      setInitProgramList(res.program_list)
-    }
-    fetch();
-  }, [])
-
-  const currentList = useMemo(() => {
-    let res = [];
-    programList.forEach(i => {
-      res = res.concat(i.courses)
-    })
-    return res;
-  }, [programList])
-
-
-  const handleChange = async (v) => {
-    const res = await fetchCourses(v);
-    setProgramList(res.program_list)
-  }
-
-  console.log('currentList', currentList);
-
+  
   return (
     <>
       <Navbar />
