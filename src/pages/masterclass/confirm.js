@@ -81,14 +81,14 @@ export const Confirm = () => {
                 desc={t("lesson-desc1")}
                 link="/masterclass"
               />
-              <LessonItem
+              {/* <LessonItem
                 isCol
                 roundIcon
                 icon={"/img/heading-partner.jpg"}
                 title={'Become a Partner'}
                 desc={t("lesson-desc1")}
                 link="/partner"
-              />
+              /> */}
             </div>
           </div>
         </div>
