@@ -6,6 +6,7 @@ import {useTranslation} from "react-i18next";
 import {HeadingBlock} from "../../components/headingBlock";
 import {Detail} from "./detail";
 import {Enrol} from "./enrol";
+import {Confirm} from "./confirm";
 import {Select} from 'antd';
 import {
   LoadingOutlined,
@@ -108,6 +109,9 @@ const MasterClassRouter = () => <div className="flex flex-col min-h-screen">
       </Route>
       <Route path={`/masterclass/enrol/:id`}>
         <Enrol />
+      </Route>
+      <Route path={`/masterclass/confirm/:id`}>
+        <Confirm />
       </Route>
       <Route>
         <MasterClass />

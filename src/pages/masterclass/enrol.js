@@ -94,30 +94,51 @@ export const Enrol = () => {
               </div>
               <div className="md:flex-1 md:w-1/3 mt-10 md:mr-10">
                 <Form
-                  className="md:p-5 md:border rounded-lg"
+                  className="md:p-5 md:border rounded-lg sticky top-10"
                   form={form}
                   layout="vertical"
                 >
                   <Form.Item
                     label={'First Name'}
                     name="first-name"
-                    rules={[{required: true,  message: 'First name is required'}]}
+                    rules={[{required: true, message: 'First name is required'}]}
                   >
                     <Input placeholder={t('contact-form-name')} />
                   </Form.Item>
                   <Form.Item
                     label={'Last Name'}
                     name="last-name"
-                    rules={[{required: true,  message: 'Last name is required'}]}
+                    rules={[{required: true, message: 'Last name is required'}]}
                   >
                     <Input placeholder={t('contact-form-name')} />
                   </Form.Item>
                   <Form.Item
                     label={t('contact-form-email')}
                     name="email"
-                    rules={[{required: true,  message: 'Email is required'}]}
+                    rules={[{required: true, message: 'Email is required'}, {
+                      type: 'email',
+                      message: 'The input is not valid E-mail',
+                    },]}
                   >
                     <Input placeholder={t('contact-form-email')} />
+                  </Form.Item>
+                  <Form.Item
+                    label={t('confirm-form-email')}
+                    name="confirm-email"
+                    dependencies={['email']}
+                    rules={[{required: true, message: 'Please confirm your Email'}, {
+                      type: 'email',
+                      message: 'The input is not valid E-mail',
+                    }, ({getFieldValue}) => ({
+                      validator(_, value) {
+                        if (!value || getFieldValue('email') === value) {
+                          return Promise.resolve();
+                        }
+                        return Promise.reject(new Error('The email that you entered do not match'));
+                      },
+                    })]}
+                  >
+                    <Input autoComplete="off" onPaste={e => {e.preventDefault();}} placeholder={t('confirm-form-email')} />
                   </Form.Item>
                   {/* <div className="mb-5"><Captcha onVerify={(res) => console.log(222)} /></div> */}
                   <div className="flex justify-end mb-5 font-bold">{info.price_info}</div>

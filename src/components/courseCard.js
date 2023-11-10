@@ -70,9 +70,9 @@ export const CourseCard = ({courseInfo}) => {
         {/* <span className='font-bold'>Price:&nbsp;&nbsp;</span> */}
         <span>{price_info}</span>
       </div>
-      <div className='flex justify-between'>
-        <Button onClick={() => handleMore()}>Read More</Button>
-        <MainButton onClick={() => handleEnrol()}>Enrol Now</MainButton>
+      <div className='flex justify-end'>
+        {/* <Button onClick={() => handleMore()}></Button> */}
+        <MainButton onClick={() => handleEnrol()}>Read More</MainButton>
       </div>
     </div>
 
