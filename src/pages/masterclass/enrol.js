@@ -59,7 +59,7 @@ export const Enrol = () => {
                     <div className="font-bold text-2xl my-5 ">{info.course_name}</div>
                     <div className="gap-5 border-b pb-5 flex">
                       <div>
-                        <img src="/img/about_v2.png" className="rounded-full w-20" />
+                        <img src={info.profile_img_url} className="rounded-full w-20" />
                       </div>
                       <div>
                         <div className="font-bold text-lg main-color">Presenter</div>
@@ -80,7 +80,7 @@ export const Enrol = () => {
                     </div>
                     <div className="border-b py-5">
                       <div className="font-bold text-lg flex items-center gap-2"><UserOutlined />Profile of Presenter</div>
-                      <div className="text-gray-700" dangerouslySetInnerHTML={{__html: info.long_info}}></div>
+                      <div className="text-gray-700" dangerouslySetInnerHTML={{__html: info.presenter_info}}></div>
                     </div>
                     {/* <div className="border-b py-5">
                       <div className="font-bold text-lg">Price</div>
