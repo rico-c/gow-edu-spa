@@ -45,7 +45,7 @@ const PartnerDetail = ({onCancel, step1Data, agreeTerms}) => {
       const ip = ipRes.data.ip;
       let countryRes;
       try {
-        const res = await axios.get(`https://api.ipstack.com/${ip}?access_key=2de4bdfdc365f99f9e15ffb6020deb17`)
+        const res = await axios.get(`https://api.ipstack.com/${ip}?access_key=2de4bdfdc365f99f9e15ffb6020deb17`, {timeout: 1500})
         countryRes = res;
       } catch (e) {
         countryRes = {
