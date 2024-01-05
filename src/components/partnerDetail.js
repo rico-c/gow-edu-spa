@@ -26,25 +26,37 @@ const PartnerDetail = ({onCancel, step1Data, agreeTerms}) => {
   const [enterEnable, setEnterEnable] = useState(false);
   const [showABN, setShowABN] = useState(false)
   const [showABNDetail, setShowABNDetail] = useState(false)
-  const [countryInfo, setCountryInfo] = useState();
+  // const [countryInfo, setCountryInfo] = useState();
   const [abn, setAbn] = useState({})
 
   const lang = i18n.language;
   const coutryList = lang === 'zh' ? countryZh : countryEn;
 
+  const handleIP = (countryRes) => {
+    form.setFieldsValue({
+      residence: countryRes.data.country_code,
+      state: countryRes.data.region_name
+    })
+  }
+
   useEffect(() => {
     const fetchCountry = async () => {
       const ipRes = await axios.get('https://api.ipify.org?format=json')
       const ip = ipRes.data.ip;
-      const countryRes = await axios.get(`https://api.ipstack.com/${ip}?access_key=2de4bdfdc365f99f9e15ffb6020deb17`)
-      setCountryInfo(countryRes.data)
-      console.log(222, countryRes);
+      let countryRes;
+      try {
+        const res = await axios.get(`https://api.ipstack.com/${ip}?access_key=2de4bdfdc365f99f9e15ffb6020deb17`)
+        countryRes = res;
+      } catch (e) {
+        countryRes = {
+          data: {
+            country_code: 'AU',
+            region_name: 'Australia'
+          }
+        }
+      }
 
-      form.setFieldsValue({
-        residence: countryRes.data.country_code,
-        // 'mobile-code': countryRes.data.country_name,
-        state: countryRes.data.region_name
-      })
+      handleIP(countryRes)
     }
     fetchCountry();
   }, [])
