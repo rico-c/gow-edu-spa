@@ -45,7 +45,7 @@ const Detail = () => {
                 {data.school_name}
               </div>
               <div className="border-t pb-5"></div>
-              <div className="flex gap-5">
+              <div className="md:flex gap-5">
                 <div className="flex-1">
                   <div className="p-5">
                     <div>
@@ -73,18 +73,18 @@ const Detail = () => {
                     </div>
                   </div>
                 </div>
-                <div className="hidden md:flex md:max-w-md items-center justify-center">
+                <div className="md:flex md:max-w-md items-center justify-center">
                   <img src={data.school_image_url} className="rounded-lg" />
                 </div>
               </div>
               <div className="border-b pt-5"></div>
               <div className="text-3xl fotn-bold pt-5 main-color">{t('overview')}: {data.school_name}</div>
               <div className="info-graph pt-5 leading-7" dangerouslySetInnerHTML={{__html: data.school_info}}></div>
-              <div className="flex gap-5 mb-10">
-                <div className="w-1/2">
+              <div className="md:flex gap-5 mb-10">
+                <div className="w-full md:w-1/2 mb-5">
                   <img width="w-full rounded" style={{borderRadius: '8px'}} alt="" src={data.city_image_url} />
                 </div>
-                <div className="w-1/2"><div className="text-3xl fotn-bold main-color">{t('location')}: {data.city}</div>
+                <div className="w-full md:w-1/2"><div className="text-3xl fotn-bold main-color">{t('location')}: {data.city}</div>
                   <div className="info-graph pt-5 leading-7" dangerouslySetInnerHTML={{__html: data.city_info}}></div></div>
               </div>
             </div>

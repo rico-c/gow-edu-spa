@@ -13,6 +13,7 @@ import {HeadingBlock} from "../../components/headingBlock";
 
 const University = () => {
   const {t} = useTranslation("university");
+  const {t: tcommon} = useTranslation("common");
 
   const [countries, setCountries] = useState([]);
   const [years, setYears] = useState([]);
@@ -117,7 +118,7 @@ const University = () => {
 
       <Navbar />
       <div>
-        <HeadingBlock bg="/img/Find_my_university.jpg" img="/icon/Icon-Uni Prep@2x.png" header={t('title')} desc={t('desc')} />
+        <HeadingBlock bg="/img/Find_my_university.jpg" img="/icon/Icon-Uni Prep@2x.png" header={t('title')} desc={tcommon('finduniversity-desc2')} />
         <div className="flex justify-center pb-10 pt-10">
           <div className="px-5 md:px-20 w-full md:max-w-screen-xl">
             <div className="text-xl font-bold">{t("sub-title")}</div>

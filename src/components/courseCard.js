@@ -59,16 +59,16 @@ export const CourseCard = ({courseInfo}) => {
           <div className="font-bold text-lg flex items-center gap-2"><GlobalOutlined style={{fontSize: '16px'}} />Language</div>
           <div className="text-gray-700">{lang_info}</div>
         </div>
-        <div className="border-b py-2">
+        <div className=" pt-2">
           <div className="font-bold text-lg flex items-center gap-2"><FileTextOutlined style={{fontSize: '16px'}} />Description</div>
           <div className="text-gray-700" dangerouslySetInnerHTML={{__html: short_info}}></div>
         </div>
       </div>
     </div>
-    <div className='p-5'>
+    <div className='p-5 pt-0'>
       <div className='flex flex-wrap mb-2'>
         {/* <span className='font-bold'>Price:&nbsp;&nbsp;</span> */}
-        <span>{price_info}</span>
+        <span className='font-bold'>{price_info}</span>
       </div>
       <div className='flex justify-end'>
         {/* <Button onClick={() => handleMore()}></Button> */}

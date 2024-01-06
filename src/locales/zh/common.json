@@ -106,5 +106,14 @@
   "entity-name": "Entity Name (If applicable)",
   "abn-threshold": "Are you running a business or enterprise that has a GST turnover that exceeds the GST threshold of $75,000?",
   "postcode": "Postcode",
-  "mobile": "Mobile"
+  "mobile": "Mobile",
+  "master-desc": "It’s time to live your best possible life! Our on-line Masterclasses are presented by dynamic presenters who will help you succeed in your studies at university, assist you in mapping out your future career and sharpening your job seeking skills, and give you the skills to not only survive in life, but to flourish and be all you can be.",
+  "studyoversea-desc": "Making the decision which university to attend can be complex and time consuming, however Gow Education is here to help you by making the process clear and straightforward. Contact us now for a free obligation consultation with one of our consultants.",
+  "courseadvice-desc": "Our mission is to help you succeed in life, so it makes sense to benefit from our strong experience in the tertiary education sector. Find out more about the process of moving you into the next stage of your life.",
+  "courseadvice-desc2": "It’s exciting - you’re looking at your options to study overseas. With so many overseas universities and courses from which to choose across different countries, your options might seem overwhelming. That’s where we can help you free of charge. Simply contact us to tell us your interests and make a booking to chat further.",
+  "finduniversity-desc": "There are thousands of universities from which to choose. To make the right choice, find out more about some of the top performing universities in the world and their locations in different countries.",
+  "theprocess-desc": "A Gow Education consultant will help you choose the most appropriate course matched to your experience and needs. We will submit the applications to the University on your behalf, including your previous course results, English language test results and other supporting documents. If you are offered a place, the University will send you a Letter of Offer which may be conditional or unconditional. If there are no conditions, you can accept your offer immediately and pay the requested fees. Examples of conditions that might be possibly imposed include the requirement to enrol in an English language school prior to starting your University course or forwarding other supporting evidence such as certified documents.",
+  "finduniversity-desc2": "There are numerous university ranking systems to assess university performance on the global stage, two of which are The Times Higher Education’s World University Rankings and the QS World University Rankings. The Times ranking is featured below as it attempts to reflect both a university's research impact and its reputation.",
+  "select-program": "选择项目",
+  "all-programs": "所有项目"
 }

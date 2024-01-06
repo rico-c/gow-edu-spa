@@ -15,7 +15,7 @@ export const HeadingSection = ({
       <div className="hidden md:flex justify-center flex-shrink-0 items-center md:w-48">
         <img src={img} style={{width: smallIcon ? '155px' : '130px', height: smallIcon ? '155px' : '130px', marginTop: smallIcon ? '-10px' : '0'}} alt="" className="" />
       </div>
-      {step === 1 && <div className="pt-2">
+      {step === 1 && <div className="pt-0">
         <div className="text-3xl font-bold main-color">{header}</div>
         <div className="pt-2">{desc}</div>
       </div>}

@@ -32,7 +32,7 @@ const MasterClass = () => {
     return [
       {
         value: null,
-        label: 'All programs'
+        label: t('all-programs')
       },
       ...items
     ]
@@ -61,23 +61,21 @@ const MasterClass = () => {
     setProgramList(res.program_list)
   }
 
-  console.log('currentList', currentList);
-
   return (
     <>
       <Navbar />
       <div>
-        <HeadingBlock bg="/img/Masterclasses.jpg" img={'/img/Icon-Turnitin Feedback.png'} header={t('master')} desc={t('oversea-desc')} />
+        <HeadingBlock bg="/img/Masterclasses.jpg" img={'/img/Icon-Turnitin Feedback.png'} header={t('master')} desc={t('master-desc')} />
         <div className="flex justify-center md:p-10 mb-5">
           <div className="w-5/6 md:max-w-screen-xl">
             <div className="md:flex justify-center mb-10 items-center">
-              <div>Select Program: &nbsp;&nbsp;</div>
+              <div>{t('select-program')}: &nbsp;&nbsp;</div>
               <Select
                 defaultValue={null}
                 onChange={handleChange}
                 options={programs}
                 className="w-full md:w-1/3"
-                placeholder="select program"
+                placeholder={t('select-program')}
               />
             </div>
 

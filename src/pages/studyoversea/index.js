@@ -23,7 +23,7 @@ const StudyOversea = () => {
     <>
       <Navbar />
       <div className="" >
-        <HeadingBlock bg="/img/Study_overseas.jpg" img={'/img/Icon--Leader Prep.png'} header={t('oversea')} desc={t('oversea-desc')} />
+        <HeadingBlock bg="/img/Study_overseas.jpg" img={'/img/Icon--Leader Prep.png'} header={t('oversea')} desc={t('studyoversea-desc')} />
 
         <div className="flex justify-center pb-10" style={{backgroundColor: 'rgb(246, 246, 246)'}}>
           <div className="block md:flex md:max-w-screen-xl md:pl-10">
@@ -33,22 +33,22 @@ const StudyOversea = () => {
                   smallIcon
                   icon={"/icon/icon_Live Masterclass.png"}
                   title={t("course-advise")}
-                  desc={t("lesson-desc1")}
+                  desc={t("courseadvice-desc")}
                   link="/studyoversea/advise"
                 />
                 <LessonItem
                   icon={"/icon/Icon-Uni Prep@2x.png"}
                   title={t("find-my-university")}
-                  desc={t("lesson-desc1")}
+                  desc={t("finduniversity-desc")}
                   link="/studyoversea/university"
                 />
-                <LessonItem
+                {/* <LessonItem
                   smallIcon
                   icon={"/icon/icon_phD preparation@3x.png"}
                   title={t("phd-pre")}
                   desc={t("lesson-desc1")}
                   link="/phdready"
-                />
+                /> */}
               </div>
               <div className="pl-10 md:pl-0 pr-10 md:pr-0 md:flex gap-5 justify-center" style={{backgroundColor: 'rgb(246, 246, 246)'}}>
                 <LessonItem
