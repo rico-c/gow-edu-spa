@@ -89,7 +89,7 @@
   "subscribe-format": "Please provide valid format data",
   "partner-pdf": "I have read and agree to Gow Education’s Partner",
   "parter-program": "Partner Program",
-  "parter-interest": "Expression of Interest",
+  "parter-interest": "Affiliate Marketing Registration",
   "get-code": "Get Verification Code",
   "veri-code": "Verification Code",
   "sent-code": "Code sent to email",
@@ -115,5 +115,8 @@
   "theprocess-desc": "A Gow Education consultant will help you choose the most appropriate course matched to your experience and needs. We will submit the applications to the University on your behalf, including your previous course results, English language test results and other supporting documents. If you are offered a place, the University will send you a Letter of Offer which may be conditional or unconditional. If there are no conditions, you can accept your offer immediately and pay the requested fees. Examples of conditions that might be possibly imposed include the requirement to enrol in an English language school prior to starting your University course or forwarding other supporting evidence such as certified documents.",
   "finduniversity-desc2": "There are numerous university ranking systems to assess university performance on the global stage, two of which are The Times Higher Education’s World University Rankings and the QS World University Rankings. The Times ranking is featured below as it attempts to reflect both a university's research impact and its reputation.",
   "select-program": "选择项目",
+  "phd-desc": "Applying for and commencing a PhD might be a daunting and overwhelming experience. Don’t worry, you are not alone, we can assist you by providing the tools and guidance needed for you to approach a PhD with confidence.",
+  "masterclass-sidebar-desc": "Sharpen your skills for succeeding at university, mapping out your future career and job seeking skills, and the skills to not only survive in life, but to flourish and be all you can be.",
+  "partner-sidebar-desc": "If you are interested in helping others achieve their dreams and make a positive difference in people’s lives, then we invite you to become a Gow Education Partner. Find out more.",
   "all-programs": "所有项目"
 }

@@ -22,7 +22,7 @@ const Partner = () => {
 
       <Navbar />
       <div>
-        <HeadingBlock smallIcon bg="/img/course_advice.jpg" step={step} img={'/img/WechatIMG1663.png'} header={t('partner-title')} desc={t('oversea-desc')} />
+        <HeadingBlock smallIcon bg="/img/course_advice.jpg" step={step} img={'/img/WechatIMG1663.png'} header={t('partner-title')} desc={t('lesson-desc3')} />
         {
           step === 1 && <>
             <div className="text-center pb-10 px-10  md:flex-row flex items-center justify-center flex-wrap">

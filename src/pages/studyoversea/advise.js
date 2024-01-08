@@ -16,9 +16,9 @@ const Advise = () => {
           <div className="block w-full md:flex md:max-w-screen-xl md:pl-10">
             <div className="flex-1">
               <div className="pl-10 md:pl-10 pr-10" >
-                <div className="font-bold main-color my-5">The Process</div>
+                <div className="font-bold text-xl main-color mb-5">The Process</div>
                 A Gow Education consultant will help you choose the most appropriate course matched to your experience and needs. We will submit the applications to the University on your behalf, including your previous course results, English language test results and other supporting documents. If you are offered a place, the University will send you a Letter of Offer which may be conditional or unconditional. If there are no conditions, you can accept your offer immediately and pay the requested fees. Examples of conditions that might be possibly imposed include the requirement to enrol in an English language school prior to starting your University course or forwarding other supporting evidence such as certified documents.
-                <div className="font-bold main-color my-5">Our Approach</div>
+                <div className="font-bold text-xl main-color my-5">Our Approach</div>
                 Our Student Placement services are free, and given our wide knowledge of the education market, your Gow Education Consultant will:
                 <ul className="list-disc pl-5 my-5">
                   <li>Identify your goals, timeline, budget and your educational experience</li>
@@ -30,7 +30,7 @@ const Advise = () => {
                 </ul>
                 The good news? Gow Education consultants do not charge to assist you and submit your application to a University You may however in some instances be required to pay the University application fee by providing your credit card details.
 
-                <div className="font-bold main-color my-5">Are You Ready to Start?</div>
+                <div className="font-bold text-xl main-color my-5">Are You Ready to Start?</div>
                 For a free consultation to get started, contact us now by completing the online form.
               </div>
             </div>

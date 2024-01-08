@@ -49,13 +49,13 @@ const Lesson = () => {
           desc={t("lesson-desc2")}
           link="/studyoversea"
         />
-        {/* <LessonItem
+        <LessonItem
           smallIcon
           icon={"/icon/icon_phD preparation@3x.png"}
-          title={t("lesson-title3")}
-          desc={t("lesson-desc3")}
+          title={t("phd-pre")}
+          desc={t("phd-desc")}
           link="/phdready"
-        /> */}
+        />
         <LessonItem
           smallIcon
           icon={"/img/WechatIMG1663.png"}
