@@ -166,7 +166,7 @@ const PartnerDetail = ({onCancel, step1Data, agreeTerms}) => {
 
   return (
     <div className="flex justify-center pt-10 w-full">
-      <div className="shadow w-full max-w-2xl rounded p-10 mb-10 bg-white">
+      <div className="shadow w-full max-w-3xl rounded p-10 mb-10 bg-white">
         <div className="text-3xl font-bold main-color mb-5">
           {t("details")}
         </div>

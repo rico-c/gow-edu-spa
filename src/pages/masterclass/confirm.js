@@ -27,7 +27,7 @@ export const Confirm = () => {
                 </div>
               </div>
             </div>
-            <div className="px-10 md:px-0 md:w-1/4 rounded-lg overflow-hidden" style={{minWidth: '320px'}}>
+            <div className="hidden md:block px-10 md:px-0 md:w-1/4 rounded-lg overflow-hidden" style={{minWidth: '320px'}}>
               {/* <StudyForm shadow /> */}
               <LessonItem
                 isCol

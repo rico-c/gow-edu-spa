@@ -5,10 +5,9 @@ import {MainButton} from "./button";
 import {fetchVerifyCode, doVerify} from '../api/partner'
 import store from 'store';
 
-// const sentWaitTime = 15 * 60 * 1000;
 const sentWaitTime = 20 * 1000;
 
-const PartnerForm = ({onEnter}) => {
+const PartnerForm = ({onEnter, checkBoxLine}) => {
   const {t} = useTranslation("common");
   const [form] = Form.useForm();
   const [messageApi, contextHolder] = message.useMessage();
@@ -76,7 +75,7 @@ const PartnerForm = ({onEnter}) => {
 
   return (
     <div className="flex justify-center pt-10 w-full">
-      <div className="shadow w-full max-w-2xl rounded p-10 mb-10 bg-white">
+      <div className="shadow w-full max-w-3xl rounded p-10 mb-10 bg-white">
         <div className="text-3xl font-bold main-color mb-5">
           {t("parter-interest")}
         </div>
@@ -119,6 +118,7 @@ const PartnerForm = ({onEnter}) => {
                 <Input />
               </div>
             </Form.Item>
+            {checkBoxLine}
             <Form.Item className="text-center">
               <Button
                 disabled={!enterEnable}
