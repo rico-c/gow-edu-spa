@@ -74,8 +74,8 @@ const PartnerForm = ({onEnter, checkBoxLine}) => {
   }
 
   return (
-    <div className="flex justify-center pt-10 w-full">
-      <div className="shadow w-full max-w-3xl rounded p-10 mb-10 bg-white">
+    <div className="flex px-10 md:px-16 w-full">
+      <div className=" w-full max-w-3xl rounded mb-10 bg-white">
         <div className="text-3xl font-bold main-color mb-5">
           {t("parter-interest")}
         </div>

@@ -50,7 +50,7 @@ const StudyOversea = () => {
                   link="/phdready"
                 /> */}
               </div>
-              <div className="pl-10 md:pl-0 pr-10 md:pr-0 md:flex gap-5 justify-center" style={{backgroundColor: 'rgb(246, 246, 246)'}}>
+              <div className="hidden pl-10 md:pl-0 pr-10 md:pr-0 md:flex gap-5 justify-center" style={{backgroundColor: 'rgb(246, 246, 246)'}}>
                 <LessonItem
                   isCol
                   roundIcon

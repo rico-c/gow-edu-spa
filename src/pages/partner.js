@@ -73,7 +73,8 @@ const Partner = () => {
               </div>
               <div className="whitespace-break-spaces">
                 {t('affiliate-desc2')}
-                <button className="main-color"> Gow Education Consultant</button>
+                <button className="main-color">{t('affiliate-click')}</button>
+                {t('affiliate-desc3')}
               </div>
             </div>
           </div>

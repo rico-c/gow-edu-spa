@@ -17,7 +17,7 @@ const Testimonials = () => {
 
       <Navbar />
       <>
-        <HeadingBlock bg="/img/imge00.png" img={'/img/Icon-Performance Coaching@2x.png'} header={'Feedback'} desc={t('course-advise-desc')} />
+        <HeadingBlock bg="/img/imge00.png" img={'/img/Icon-Performance Coaching@2x.png'} header={t('feedback')} desc={t('feedback-desc')} />
         <Container className="md:max-w-screen-xl flex-wrap mb-5 lg:gap-10 lg:flex-nowrap ">
           <div className="md:flex py-5">
             <div className="md:mb-5 md:w-1/2">
