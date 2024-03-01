@@ -4,7 +4,6 @@ import {fetchCountry} from '../utils/fetchCountry'
 
 export const fetchCourses = async (filter) => {
   const cc = await fetchCountry();
-  console.log(cc);
   const res = await axios.get(`${host}/courses`, {
     params: {
       filter,
